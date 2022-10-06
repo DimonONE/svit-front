@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import './styles/index.scss';
 import App from './components/App';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+const rootElement = document.getElementById("app");
+const root = createRoot(rootElement as HTMLElement);
+
+root.render(
+    <StrictMode>
+        <App />
+    </StrictMode>
+);
