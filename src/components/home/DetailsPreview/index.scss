@@ -1,0 +1,9 @@
+.details-preview {
+  height: 100vh;
+  &__tex-info {
+    max-width: 840px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}

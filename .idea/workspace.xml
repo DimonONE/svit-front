@@ -1,60 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="856c3692-3c19-4d2a-af5f-943076b2ca30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/containers/CustomRouter.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/containers/Loading.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/home/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/initialState.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/theme.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useGlobalState.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/Router.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/_fonts.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/_global.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Bicycle.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Burger.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Calendar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/CheckGreen.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Checked.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Close.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Copy.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Cross.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Error.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Logo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Menu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Message.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/NoChecked.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Person.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/PhotoCamera.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/RadioButtonChecked.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/RightArrow.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Search.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/ShowPassword.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Sneaker.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Success.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/ToBottom.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/ToLeft.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/ToRight.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/ToTop.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Upload.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svg/Wave.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/base.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/enums.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/history.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    <list default="true" id="1d40e1e0-b652-4311-aa6e-8ab6ffeaa25f" name="Changes" comment="fix: react v18">
+      <change afterPath="$PROJECT_DIR$/src/components/home/DetailsPreview/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/home/DetailsPreview/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/HopePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/CustomRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/CustomRouter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/Loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Loading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/theme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Router.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Router.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,21 +35,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/Progect WEB/svit-front",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "G:\\Progect WEB\\svit-front\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Progect WEB/svit-front&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;G:\\Progect WEB\\svit-front\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Progect WEB\svit-front\src" />
       <recent name="G:\Progect WEB\svit-front\src\styles" />
       <recent name="G:\Progect WEB\svit-front\src\components" />
     </key>
@@ -107,6 +70,14 @@
       <updated>1665052200396</updated>
       <workItem from="1665052202076" duration="2833000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: react v18">
+      <created>1665061981174</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665061981174</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,5 +93,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix: react v18" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: react v18" />
   </component>
 </project>

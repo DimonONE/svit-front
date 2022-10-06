@@ -1,14 +1,3 @@
-import React, {useEffect} from 'react'
-import {useGlobalState} from "../../hooks/useGlobalState";
+import DetailsPreview from './DetailsPreview'
 
-
-export const Home: React.FC = () => {
-const [, setLoading] = useGlobalState('loading')
-useEffect(() => {setLoading(false)}, [])
-
-return (
-    <div>
-      texts
-    </div>
-  )
-}
+export default DetailsPreview

@@ -1,6 +1,6 @@
 import { Backdrop, CircularProgress } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import { useGlobalState } from '../../hooks/useGlobalState'
+import { useGlobalState } from '../hooks/useGlobalState'
 
 const useStyles = makeStyles({
   root: {

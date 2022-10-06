@@ -2,8 +2,8 @@ import { ThemeProvider } from '@mui/material'
 import { SnackbarProvider } from 'notistack'
 import { theme } from '../data/theme'
 import { history } from '../utils/history'
-import { CustomRouter } from './containers/CustomRouter'
-import { Loading } from './containers/Loading'
+import { CustomRouter } from '../containers/CustomRouter'
+import { Loading } from '../containers/Loading'
 import { Router } from '../routes/Router'
 
 function App() {

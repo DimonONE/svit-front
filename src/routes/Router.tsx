@@ -1,11 +1,11 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import {Home} from "../components/home";
+import {HomePage} from "../pages/HopePage";
 
 export const Router: React.FC = () => {
 
   return <Routes>
-    <Route path="/" element={<Home />} />
+    <Route path="/" element={<HomePage />} />
     <Route path="*" element={<Navigate to={'/'} />} />
   </Routes>
 }
