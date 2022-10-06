@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Selawik' !important;
+  color: #ddd;
+  overflow: hidden;
+  cursor: default;
+  scrollbar-color: #191919 #333;
+  scrollbar-width: thin;
+}
+
+html {
+  background: #191919;
+  font-size: 0.83333vw;
+}
+
+button {
+  font-size: 0.9375rem !important;
+}
+
+textarea {
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  background: none;
+  width: 0.375rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #191919;
+  border-radius: 4.6875rem;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+a,
+button,
+svg {
+  cursor: pointer;
+}
+
+input {
+  cursor: text;
+}
+
+.white * {
+  color: white;
+}
+
+.pointer * {
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+}
