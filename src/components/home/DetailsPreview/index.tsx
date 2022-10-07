@@ -1,10 +1,16 @@
-import React, { useEffect } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import React, { useMemo, useState } from "react";
 import styled from "styled-components";
 import { CardDetailsPreview } from "./DetailsPreview";
+import { detailsData } from "../../../data/detailsDate";
 
 const Wrapper = styled.div`
   height: 100%;
+`;
+
+const WrapperCardDetails = styled.div`
+  display: flex;
+  height: 100%;
+  position: relative;
 `;
 
 const TextInfo = styled.h3`
@@ -16,6 +22,18 @@ const TextInfo = styled.h3`
 `;
 
 const DetailsPreview: React.FC = () => {
+  const [showDetails, setShowDetails] = useState(1);
+
+  const details = useMemo(() => {
+    return detailsData
+      .filter(({ id }) => showDetails >= id && id + 2 >= showDetails)
+      .reverse();
+  }, [showDetails]);
+
+  const handleScroll = () => {
+    setShowDetails((prev) => prev + 1);
+  };
+
   return (
     <Wrapper>
       <TextInfo>
@@ -24,9 +42,16 @@ const DetailsPreview: React.FC = () => {
         технології, щоб зробити ваш будинок ще прекрасніше, управління -
         простіше, ваше <br /> життя - краще
       </TextInfo>
-
-      <CardDetailsPreview />
-      <CardDetailsPreview />
+      <WrapperCardDetails>
+        {details.map((props, index) => (
+          <CardDetailsPreview
+            key={props.id}
+            firstIndex={index === 0}
+            handleScroll={handleScroll}
+            {...props}
+          />
+        ))}
+      </WrapperCardDetails>
     </Wrapper>
   );
 };
