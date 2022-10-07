@@ -1,23 +1,22 @@
 import React, { useEffect } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import styled, { keyframes } from "styled-components";
-import { DetailInfo } from "../../../types/detailsType";
+import { Detail, DetailInfo } from "../../../types/detailsType";
 
-interface IProps {
-  margin: string | number;
-  image: string;
+interface IProps extends Detail {
   firstIndex: boolean;
   handleScroll: () => void;
-  info: DetailInfo[];
 }
 
 const opacityAnimation = () => keyframes`
- 0% { opacity: 0.1; left: 0 }
- 20% { opacity: 0.3 }
+  0% { opacity: 0.1; left: 0;  
+    transition: left 500ms ease;
+  }
+ 20% { opacity: 0.3;}
  40% { opacity: 0.5 } 
  60% { opacity: 0.7 }
  80% { opacity: 0.9 }
- 100% { opacity: 1; left: 240px }`;
+ 100% { opacity: 1; left: 240px; transition-property: opacity, left; }`;
 
 const CardWrapper = styled.div.attrs((props: { firstIndex: boolean }) => ({
   firstIndex: props.firstIndex,
@@ -28,9 +27,11 @@ const CardWrapper = styled.div.attrs((props: { firstIndex: boolean }) => ({
   perspective: 2000;
   display: -ms-flexbox;
   opacity: 1;
-  animation: ease-in 2s infinite running ${opacityAnimation};
-  animation-iteration-count: 1;
 `;
+
+// animation: ${opacityAnimation} 2s linear infinite;
+//   animation-iteration-count: 1;
+// animation: ease-in 3s infinite running ${};
 
 const CardContainer: any = styled(motion.div)`
   position: relative;
@@ -87,7 +88,7 @@ export const CardDetailsPreview: React.FC<IProps> = (props) => {
       >
         <img
           height={firstIndex ? heightCard - 50 : heightCard}
-          src={props.image}
+          src={firstIndex && props?.imagePrev ? props.imagePrev: props.image}
         />
         <ShoesWrapper />
         {!firstIndex &&

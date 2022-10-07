@@ -13,4 +13,5 @@ export interface Detail {
   image: string;
   margin: string | number;
   info: DetailInfo[];
+  imagePrev?: string;
 }

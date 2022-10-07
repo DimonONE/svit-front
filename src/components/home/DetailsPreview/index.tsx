@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import styled from "styled-components";
 import { CardDetailsPreview } from "./DetailsPreview";
 import { detailsData } from "../../../data/detailsDate";
-
+import debounce from "debounce"
 const Wrapper = styled.div`
   height: 100%;
 `;
@@ -11,6 +11,7 @@ const WrapperCardDetails = styled.div`
   display: flex;
   height: 100%;
   position: relative;
+  overflow-x: auto;
 `;
 
 const TextInfo = styled.h3`
@@ -30,9 +31,10 @@ const DetailsPreview: React.FC = () => {
       .reverse();
   }, [showDetails]);
 
-  const handleScroll = () => {
-    setShowDetails((prev) => prev + 1);
-  };
+
+  
+  const handleScroll = debounce(()=> {setShowDetails((prev) => details.length + 1 > prev ? prev + 1: 1); console.log('showDetails', showDetails);
+  }, 100 )
 
   return (
     <Wrapper>
@@ -42,7 +44,7 @@ const DetailsPreview: React.FC = () => {
         технології, щоб зробити ваш будинок ще прекрасніше, управління -
         простіше, ваше <br /> життя - краще
       </TextInfo>
-      <WrapperCardDetails>
+      <WrapperCardDetails onWheel={handleScroll}>
         {details.map((props, index) => (
           <CardDetailsPreview
             key={props.id}

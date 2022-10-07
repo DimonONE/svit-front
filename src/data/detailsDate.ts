@@ -1,6 +1,7 @@
 import GlassImg from "../assets/images/sockets/glass.png";
 import BoardImg from "../assets/images/sockets/board.png";
 import FameTroughImg from "../assets/images/sockets/frame-trough.png";
+import FrameIMG from "../assets/images/sockets/frame.png";
 import { Detail } from "../types/detailsType";
 
 export const detailsData: Detail[] = [
@@ -46,7 +47,7 @@ export const detailsData: Detail[] = [
         linePicture: {
           pX: 0,
           pY: 0,
-          widthLine: 200,
+          widthLine: 100,
         },
         textInfo: "textInfo",
       },
@@ -54,7 +55,8 @@ export const detailsData: Detail[] = [
   },
   {
     id: 4,
-    image: BoardImg,
+    image: FrameIMG,
+    imagePrev: FameTroughImg ,
     margin: 0,
     info: [
       {
@@ -62,7 +64,7 @@ export const detailsData: Detail[] = [
         linePicture: {
           pX: 0,
           pY: 0,
-          widthLine: 100,
+          widthLine: 200,
         },
         textInfo: "textInfo",
       },
