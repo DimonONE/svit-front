@@ -7,7 +7,7 @@ interface IProps extends Detail {
   firstItem: boolean;
   lastItem: boolean;
   amountCards: number;
-  handleScroll: (event: WheelEvent<HTMLDivElement> | undefined) => void;
+  showDetails: number;
 }
 
 const opacityAnimation = () => keyframes`
@@ -20,33 +20,64 @@ const opacityAnimation = () => keyframes`
  80% { opacity: 0.9 }
  100% { opacity: 1; left: 240px; transition-property: opacity, left; transition: left 2000ms ease; }`;
 
+// position: ${(props) => (props.firstItem ? "static" : "absolute")};
+// left: ${(props) =>
+//   props.firstItem
+//     ? 0
+//     : props.lastItem && props.amountCards > 2
+//     ? "auto"
+//     : "240px"};
+// right: ${(props) => (props.lastItem ? "0px" : "auto")};
+// opacity: ${(props) =>
+//     props.firstItem && props.amountCards > 2 ? "0.7" : "1"};
+
 const CardWrapper = styled.div.attrs(
-  (props: { firstItem: boolean; lastItem: boolean; amountCards: number }) => ({
-    firstItem: props.firstItem,
-    lastItem: props.lastItem,
-    amountCards: props.amountCards,
+  (props: {
+    firstItem: boolean;
+    lastItem: boolean;
+    detailId: number;
+    showDetails: number;
+  }) => ({
+    detailId: props.detailId,
+    showDetails: props.showDetails,
   })
 )`
-  position: ${(props) => (props.firstItem ? "static" : "absolute")};
-  left: ${(props) =>
-    props.firstItem
-      ? 0
-      : props.lastItem && props.amountCards > 2
-      ? "auto"
-      : "240px"};
-  right: ${(props) => (props.lastItem ? "0px" : "auto")};
+  overflow: visible;
   min-height: 50vh;
   perspective: 2000;
   display: -ms-flexbox;
-  opacity: ${(props) =>
-    props.firstItem && props.amountCards > 2 ? "0.7" : "1"};
-  animation: ${opacityAnimation} 2s linear infinite;
-  animation-iteration-count: 1;
-`;
+  position: ${(props) =>
+    (props.detailId === 1 && props.showDetails < 3) ||
+    (props.detailId === props.showDetails - 1 && props.detailId !== 1)
+      ? "static"
+      : "absolute"};
+  right: ${(props) =>
+    props.detailId === 1 && props.showDetails >= 3 ? "0" : "auto"};
 
-// animation: ${opacityAnimation} 2s linear infinite;
-//   animation-iteration-count: 1;
-// animation: ease-in 3s infinite running ${};
+  margin-left: ${(props) =>
+    props.detailId > 1 &&
+    props.showDetails > props.detailId &&
+    props.detailId >= props.showDetails - 1
+      ? "150px;"
+      : "0"};
+  opacity: ${(props) =>
+    props.detailId === 1 ||
+    (props.showDetails > 1 &&
+      props.detailId >= props.showDetails - 1 &&
+      props.detailId <= props.showDetails + 1)
+      ? "1"
+      : "0"};
+
+  display: ${(props) =>
+    props.detailId === 1 ||
+    (props.showDetails > 1 &&
+      props.detailId >= props.showDetails - 1 &&
+      props.detailId <= props.showDetails + 1)
+      ? "block"
+      : "none"};
+  //animation: ${opacityAnimation} 2s linear infinite;
+  //animation-iteration-count: 1;
+`;
 
 const CardContainer: any = styled(motion.div)`
   position: relative;
@@ -59,11 +90,17 @@ const CardContainer: any = styled(motion.div)`
   margin-left: 5%;
 `;
 
-const InfoContainer = styled.div`
-  width: 100%;
+const InfoContainer = styled.div.attrs((props: { pY: number }) => ({
+  pY: props.pY,
+}))`
   display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: ${(props) => `${props.pY}px`};
+
+  width: 590px;
   flex: 1;
-  align-items: center;
+  align-items: flex-end;
 `;
 
 const ShoesWrapper = styled.div`
@@ -75,6 +112,25 @@ const ShoesWrapper = styled.div`
   justify-content: center;
 `;
 
+const TextInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 234px;
+  margin-bottom: 30px;
+`;
+
+const TextInfo = styled.span`
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+`;
+
+const TextInfoTitle = styled.span`
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+`;
+
 const InfoLine: any = styled.div.attrs((props: { width: string }) => ({
   width: `${props.width}px`,
 }))`
@@ -84,41 +140,41 @@ const InfoLine: any = styled.div.attrs((props: { width: string }) => ({
 `;
 
 export const CardDetailsPreview: React.FC<IProps> = (props) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+  // const x = useMotionValue(0);
+  // const y = useMotionValue(0);
 
-  const rotateX = useTransform(y, [-100, 100], [30, -30]);
-  const rotateY = useTransform(x, [-100, 0], [-30, 0]);
+  // const rotateX = useTransform(y, [-100, 100], [30, -30]);
+  // const rotateY = useTransform(x, [-100, 0], [-30, 0]);
   const heightCard = 700;
-  const { firstItem, lastItem, amountCards, handleScroll } = props;
-
+  const { firstItem, lastItem, amountCards, showDetails } = props;
+  console.log("props.id", props);
+  console.log("showDetails", showDetails);
   return (
-    <CardWrapper
-      firstItem={firstItem}
-      lastItem={lastItem}
-      amountCards={amountCards}
-      onClick={() => handleScroll(undefined)}
-    >
+    <CardWrapper detailId={props.id} showDetails={showDetails}>
       <CardContainer
-        style={{ x: 0, y, rotateX, rotateY, z: 100, height: heightCard }}
-        drag
-        dragElastic={0.16}
-        dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-        whileTap={{ cursor: "grabbing" }}
+      // style={{ x: 0, y, rotateX, rotateY, z: 100, height: heightCard }}
+      // drag
+      // dragElastic={0.16}
+      // dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+      // whileTap={{ cursor: "grabbing" }}
       >
         <img
           height={firstItem ? heightCard - 50 : heightCard}
-          src={firstItem && props?.imagePrev ? props.imagePrev : props.image}
+          src={props.image}
         />
         <ShoesWrapper />
-        {!firstItem &&
-          props.info.map((item) => (
-            <InfoContainer key={item.id}>
-              <InfoLine width={item.linePicture.widthLine} />
-              {item.textInfo}
-            </InfoContainer>
-          ))}
       </CardContainer>
+      {!firstItem &&
+        !lastItem &&
+        props.info.map((item) => (
+          <InfoContainer key={item.id} pY={item.pY}>
+            <TextInfoContainer>
+              <TextInfoTitle>{item.textInfo.title}</TextInfoTitle>
+              <TextInfo>{item.textInfo.text}</TextInfo>
+            </TextInfoContainer>
+            <InfoLine width={item.widthLine} />
+          </InfoContainer>
+        ))}
     </CardWrapper>
   );
 };

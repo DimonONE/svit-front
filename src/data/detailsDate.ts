@@ -15,12 +15,21 @@ export const detailsData: Detail[] = [
     info: [
       {
         id: 1,
-        linePicture: {
-          pX: 0,
-          pY: 0,
-          widthLine: 200,
+        widthLine: 300,
+        pY: 155,
+        textInfo: {
+          title: "Загартоване матове скло",
+          text: "Скло з приємною матовою поверхнею, олеофобним покриттям, яке захищає скло від відбитків пальців",
         },
-        textInfo: "textInfo",
+      },
+      {
+        id: 2,
+        widthLine: 300,
+        pY: 415,
+        textInfo: {
+          title: "Інтуїтивна навігація",
+          text: "Фрезероване скло дозволяє швидко і просто скористатися панеллю завдяки тактильним відчуттям",
+        },
       },
     ],
   },
@@ -31,63 +40,196 @@ export const detailsData: Detail[] = [
     info: [
       {
         id: 1,
-        linePicture: {
-          pX: 0,
-          pY: 0,
-          widthLine: 100,
+        widthLine: 200,
+        pY: 100,
+        textInfo: {
+          title: "Можливість взаємодії з кожним міліметром панелі",
+          text: "Забезпечується чуттєвим сенсором уздовж усієї поверхні ",
         },
-        textInfo: "textInfo",
+      },
+      {
+        id: 2,
+        widthLine: 300,
+        pY: 300,
+        textInfo: {
+          title: "Індивідуальна підсвітка",
+          text: "При натиску на будь-яку іконку",
+        },
+      },
+      {
+        id: 3,
+        widthLine: 300,
+        pY: 400,
+        textInfo: {
+          title: "Особливі візуальні ефекти",
+          text: "Реалізовані за допомогою масиву світлодіодів",
+        },
+      },
+      {
+        id: 4,
+        widthLine: 300,
+        pY: 600,
+        textInfo: {
+          title: "Контроль безлічі показників",
+          text: "Шляхом вбудованих датчиків освітлення, температури, вологості та тиску",
+        },
       },
     ],
   },
   {
     id: 3,
-    image: FrameIMG,
+    image: FameTroughImg,
     imagePrev: FameTroughImg,
     margin: 0,
     info: [
       {
         id: 1,
-        linePicture: {
-          pX: 0,
-          pY: 0,
-          widthLine: 100,
+        widthLine: 295,
+        pY: 15,
+        textInfo: {
+          title: "М’який натиск",
+          text: "Завдяки пружинній рамці",
         },
-        textInfo: "textInfo",
+      },
+      {
+        id: 2,
+        widthLine: 280,
+        pY: 248,
+        textInfo: {
+          title: "Тaptic Engine",
+          text: "Забезпечує приємні тактильні відчуття ",
+        },
+      },
+      {
+        id: 3,
+        widthLine: 248,
+        pY: 420,
+        textInfo: {
+          title: "Чутливі тензодатчики",
+          text: "зчитують силу натиску, забезпечуючи багатофункціональність приладу",
+        },
       },
     ],
   },
   {
     id: 4,
-    image: RoundaboutIMG,
+    image: FrameIMG,
     imagePrev: TroughWithoutFrameIMG,
     margin: 0,
     info: [
       {
         id: 1,
-        linePicture: {
-          pX: 0,
-          pY: 0,
-          widthLine: 200,
+        widthLine: 250,
+        pY: 240,
+        textInfo: {
+          title: "Інтерфейс KNX",
+          text: "Забезпечує сумістність з будь-якою системою розумного будинку",
         },
-        textInfo: "textInfo",
       },
     ],
   },
   {
     id: 5,
+    image: TroughWithoutFrameIMG,
+    imagePrev: TroughIMG,
+    margin: 0,
+    info: [
+      {
+        id: 1,
+        widthLine: 200,
+        pY: 0,
+        textInfo: {
+          title: "Швидкий і універсальний монтаж",
+          text: "За допомогою отворів на зворотній поверхні вимикача",
+        },
+      },
+      {
+        id: 2,
+        widthLine: 200,
+        pY: 0,
+        textInfo: {
+          title: "Анодований алюміній",
+          text: "7000-ї серії",
+        },
+      },
+      {
+        id: 3,
+        widthLine: 200,
+        pY: 0,
+        textInfo: {
+          title: "Просте встановлення",
+          text: "Лише два ґвинти",
+        },
+      },
+    ],
+  },
+  {
+    id: 6,
     image: RoundaboutIMG,
     imagePrev: TroughIMG,
     margin: 0,
     info: [
       {
         id: 1,
-        linePicture: {
-          pX: 0,
-          pY: 0,
-          widthLine: 200,
+        widthLine: 200,
+        pY: 0,
+        textInfo: {
+          title: "Швидкий і універсальний монтаж",
+          text: "За допомогою отворів на зворотній поверхні вимикача",
         },
-        textInfo: "textInfo",
+      },
+      {
+        id: 2,
+        widthLine: 200,
+        pY: 0,
+        textInfo: {
+          title: "Анодований алюміній",
+          text: "7000-ї серії",
+        },
+      },
+      {
+        id: 3,
+        widthLine: 200,
+        pY: 0,
+        textInfo: {
+          title: "Просте встановлення",
+          text: "Лише два ґвинти",
+        },
+      },
+    ],
+  },
+  {
+    id: 7,
+    image: TroughIMG,
+    imagePrev: TroughIMG,
+    margin: 0,
+    info: [
+      {
+        id: 1,
+        widthLine: 200,
+        pY: 0,
+        textInfo: {
+          title: "Швидкий і універсальний монтаж",
+          text: "За допомогою отворів на зворотній поверхні вимикача",
+        },
+      },
+      {
+        id: 2,
+        widthLine: 200,
+        pY: 0,
+        textInfo: {
+          title: "Анодований алюміній",
+          text: "7000-ї серії",
+        },
+      },
+      {
+        id: 3,
+        widthLine: 200,
+        pY: 0,
+        textInfo: {
+          title: "Просте встановлення",
+          text: "Лише два ґвинти",
+        },
       },
     ],
   },

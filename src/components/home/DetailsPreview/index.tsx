@@ -5,6 +5,7 @@ import { detailsData } from "../../../data/detailsDate";
 import debounce from "debounce";
 const Wrapper = styled.div`
   max-width: 1512px;
+  min-width: 1380px;
   height: 100%;
   overflow: hidden;
   margin: 0 auto;
@@ -14,7 +15,6 @@ const WrapperCardDetails = styled.div`
   display: flex;
   height: 100%;
   position: relative;
-  overflow-x: auto;
 `;
 
 const TextInfo = styled.h3`
@@ -29,9 +29,7 @@ const DetailsPreview: React.FC = () => {
   const [showDetails, setShowDetails] = useState(1);
 
   const details = useMemo(() => {
-    return detailsData
-      .filter(({ id }) => showDetails >= id && id + 2 >= showDetails)
-      .reverse();
+    return detailsData.reverse();
   }, [showDetails]);
 
   const handleScroll = (event: WheelEvent<HTMLDivElement> | undefined) => {
@@ -63,8 +61,8 @@ const DetailsPreview: React.FC = () => {
             key={props.id}
             firstItem={index === 0}
             lastItem={index === array.length - 1}
+            showDetails={showDetails}
             amountCards={array.length}
-            handleScroll={handleScroll}
             {...props}
           />
         ))}

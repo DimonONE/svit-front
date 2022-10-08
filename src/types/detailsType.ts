@@ -1,11 +1,11 @@
 export interface DetailInfo {
   id: number;
-  linePicture: {
-    pX: number;
-    pY: number;
-    widthLine: number;
+  widthLine: number;
+  pY: number;
+  textInfo: {
+    title: string;
+    text: string;
   };
-  textInfo: string;
 }
 
 export interface Detail {
