@@ -1,13 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d40e1e0-b652-4311-aa6e-8ab6ffeaa25f" name="Changes" comment="add: test variant styles">
-      <change afterPath="$PROJECT_DIR$/src/components/home/DetailsPreview/DetailsPreview.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/marginer/index.tsx" afterDir="false" />
+    <list default="true" id="1d40e1e0-b652-4311-aa6e-8ab6ffeaa25f" name="Changes" comment="add: animation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/DetailsPreview/index.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/sockets/trough-without-frame.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/sockets/trough-without-frame.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/DetailsPreview/DetailsPreview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/DetailsPreview/DetailsPreview.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/home/DetailsPreview/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/DetailsPreview/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/detailsDate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/detailsDate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Bicycle.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Burger.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Calendar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/CheckGreen.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Checked.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Close.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Copy.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Cross.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Error.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Logo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Menu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Message.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/NoChecked.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Person.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/PhotoCamera.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/RadioButtonChecked.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/RightArrow.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Search.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/ShowPassword.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Sneaker.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Success.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/ToBottom.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/ToLeft.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/ToRight.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/ToTop.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Upload.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/Wave.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +62,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "G:\\Progect WEB\\svit-front\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "settings.editor.selected.configurable": "terminal",
     "ts.external.directory.path": "G:\\Progect WEB\\svit-front\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -57,12 +83,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="856c3692-3c19-4d2a-af5f-943076b2ca30" name="Changes" comment="" />
+      <changelist id="1d40e1e0-b652-4311-aa6e-8ab6ffeaa25f" name="Changes" comment="add: card one" />
       <created>1665052200396</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665052200396</updated>
       <workItem from="1665052202076" duration="2833000" />
+      <workItem from="1665130682018" duration="17106000" />
+      <workItem from="1665235710889" duration="6358000" />
     </task>
     <task id="LOCAL-00001" summary="fix: react v18">
       <created>1665061981174</created>
@@ -78,7 +106,28 @@
       <option name="project" value="LOCAL" />
       <updated>1665082996277</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add: card one">
+      <created>1665092461249</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665092461249</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add: img">
+      <created>1665130708280</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665130708280</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add: animation">
+      <created>1665163638401</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665163638401</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +147,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: react v18" />
     <MESSAGE value="add: test variant styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: test variant styles" />
+    <MESSAGE value="add: card one" />
+    <MESSAGE value="add: img" />
+    <MESSAGE value="add: animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: animation" />
   </component>
 </project>

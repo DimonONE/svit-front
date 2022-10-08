@@ -1,10 +1,13 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, WheelEvent } from "react";
 import styled from "styled-components";
 import { CardDetailsPreview } from "./DetailsPreview";
 import { detailsData } from "../../../data/detailsDate";
-import debounce from "debounce"
+import debounce from "debounce";
 const Wrapper = styled.div`
+  max-width: 1512px;
   height: 100%;
+  overflow: hidden;
+  margin: 0 auto;
 `;
 
 const WrapperCardDetails = styled.div`
@@ -31,11 +34,21 @@ const DetailsPreview: React.FC = () => {
       .reverse();
   }, [showDetails]);
 
+  const handleScroll = (event: WheelEvent<HTMLDivElement> | undefined) => {
+    debounce(() => {
+      const count = (prevCount: number) => {
+        return event?.deltaY
+          ? prevCount >= detailsData.length
+            ? 1
+            : ++prevCount
+          : prevCount <= detailsData.length
+          ? 1
+          : --prevCount;
+      };
 
-  
-  const handleScroll = debounce(()=> {setShowDetails((prev) => details.length + 1 > prev ? prev + 1: 1); console.log('showDetails', showDetails);
-  }, 100 )
-
+      setShowDetails((prev) => count(prev));
+    }, 150)();
+  };
   return (
     <Wrapper>
       <TextInfo>
@@ -45,10 +58,12 @@ const DetailsPreview: React.FC = () => {
         простіше, ваше <br /> життя - краще
       </TextInfo>
       <WrapperCardDetails onWheel={handleScroll}>
-        {details.map((props, index) => (
+        {details.map((props, index, array) => (
           <CardDetailsPreview
             key={props.id}
-            firstIndex={index === 0}
+            firstItem={index === 0}
+            lastItem={index === array.length - 1}
+            amountCards={array.length}
             handleScroll={handleScroll}
             {...props}
           />

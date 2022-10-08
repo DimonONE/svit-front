@@ -1,32 +1,47 @@
-import React, { useEffect } from "react";
+import React, { useEffect, WheelEvent } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import styled, { keyframes } from "styled-components";
 import { Detail, DetailInfo } from "../../../types/detailsType";
 
 interface IProps extends Detail {
-  firstIndex: boolean;
-  handleScroll: () => void;
+  firstItem: boolean;
+  lastItem: boolean;
+  amountCards: number;
+  handleScroll: (event: WheelEvent<HTMLDivElement> | undefined) => void;
 }
 
 const opacityAnimation = () => keyframes`
   0% { opacity: 0.1; left: 0;  
-    transition: left 500ms ease;
+    transition: left 2000ms ease;
   }
  20% { opacity: 0.3;}
  40% { opacity: 0.5 } 
  60% { opacity: 0.7 }
  80% { opacity: 0.9 }
- 100% { opacity: 1; left: 240px; transition-property: opacity, left; }`;
+ 100% { opacity: 1; left: 240px; transition-property: opacity, left; transition: left 2000ms ease; }`;
 
-const CardWrapper = styled.div.attrs((props: { firstIndex: boolean }) => ({
-  firstIndex: props.firstIndex,
-}))`
-  position: ${(props) => (props.firstIndex ? "static" : "absolute")};
-  left: ${(props) => (props.firstIndex ? 0 : "240px")};
+const CardWrapper = styled.div.attrs(
+  (props: { firstItem: boolean; lastItem: boolean; amountCards: number }) => ({
+    firstItem: props.firstItem,
+    lastItem: props.lastItem,
+    amountCards: props.amountCards,
+  })
+)`
+  position: ${(props) => (props.firstItem ? "static" : "absolute")};
+  left: ${(props) =>
+    props.firstItem
+      ? 0
+      : props.lastItem && props.amountCards > 2
+      ? "auto"
+      : "240px"};
+  right: ${(props) => (props.lastItem ? "0px" : "auto")};
   min-height: 50vh;
   perspective: 2000;
   display: -ms-flexbox;
-  opacity: 1;
+  opacity: ${(props) =>
+    props.firstItem && props.amountCards > 2 ? "0.7" : "1"};
+  animation: ${opacityAnimation} 2s linear infinite;
+  animation-iteration-count: 1;
 `;
 
 // animation: ${opacityAnimation} 2s linear infinite;
@@ -75,10 +90,15 @@ export const CardDetailsPreview: React.FC<IProps> = (props) => {
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
   const rotateY = useTransform(x, [-100, 0], [-30, 0]);
   const heightCard = 700;
-  const { firstIndex, handleScroll } = props;
+  const { firstItem, lastItem, amountCards, handleScroll } = props;
 
   return (
-    <CardWrapper firstIndex={firstIndex} onClick={handleScroll}>
+    <CardWrapper
+      firstItem={firstItem}
+      lastItem={lastItem}
+      amountCards={amountCards}
+      onClick={() => handleScroll(undefined)}
+    >
       <CardContainer
         style={{ x: 0, y, rotateX, rotateY, z: 100, height: heightCard }}
         drag
@@ -87,11 +107,11 @@ export const CardDetailsPreview: React.FC<IProps> = (props) => {
         whileTap={{ cursor: "grabbing" }}
       >
         <img
-          height={firstIndex ? heightCard - 50 : heightCard}
-          src={firstIndex && props?.imagePrev ? props.imagePrev: props.image}
+          height={firstItem ? heightCard - 50 : heightCard}
+          src={firstItem && props?.imagePrev ? props.imagePrev : props.image}
         />
         <ShoesWrapper />
-        {!firstIndex &&
+        {!firstItem &&
           props.info.map((item) => (
             <InfoContainer key={item.id}>
               <InfoLine width={item.linePicture.widthLine} />
