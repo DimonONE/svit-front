@@ -1,8 +1,10 @@
-import React, { useMemo, useState, WheelEvent } from "react";
+import React, { SetStateAction, useMemo, useState, WheelEvent } from "react";
 import styled from "styled-components";
 import { CardDetailsPreview } from "./DetailsPreview";
 import { detailsData } from "../../../data/detailsDate";
 import debounce from "debounce";
+import { wheelTimeoutHook } from "../../../hooks/wheelTimeoutHook";
+
 const Wrapper = styled.div`
   max-width: 1512px;
   min-width: 1380px;
@@ -27,25 +29,32 @@ const TextInfo = styled.h3`
 
 const DetailsPreview: React.FC = () => {
   const [showDetails, setShowDetails] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const details = useMemo(() => {
     return detailsData.reverse();
   }, [showDetails]);
 
   const handleScroll = (event: WheelEvent<HTMLDivElement> | undefined) => {
-    debounce(() => {
-      const count = (prevCount: number) => {
-        return event?.deltaY
-          ? prevCount >= detailsData.length
-            ? 1
-            : ++prevCount
-          : prevCount <= detailsData.length
-          ? 1
-          : --prevCount;
-      };
+    const { nevEvent } = wheelTimeoutHook({
+      event,
+      loading,
+      setLoading,
+      delay: 2000,
+    });
 
+    if (nevEvent) {
+      const count = (prevCount: number) => {
+        return event?.deltaY && event.deltaY < 0
+          ? prevCount < detailsData.length
+            ? ++prevCount
+            : prevCount
+          : prevCount > 1
+          ? --prevCount
+          : prevCount;
+      };
       setShowDetails((prev) => count(prev));
-    }, 150)();
+    }
   };
   return (
     <Wrapper>
@@ -56,7 +65,7 @@ const DetailsPreview: React.FC = () => {
         простіше, ваше <br /> життя - краще
       </TextInfo>
       <WrapperCardDetails onWheel={handleScroll}>
-        {details.map((props, index, array) => (
+        {detailsData.map((props, index, array) => (
           <CardDetailsPreview
             key={props.id}
             firstItem={index === 0}

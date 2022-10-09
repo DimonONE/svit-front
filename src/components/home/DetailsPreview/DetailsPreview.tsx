@@ -10,15 +10,16 @@ interface IProps extends Detail {
   showDetails: number;
 }
 
-const opacityAnimation = () => keyframes`
-  0% { opacity: 0.1; left: 0;  
-    transition: left 2000ms ease;
-  }
+const opacityAnimation = (
+  marginLeft: string,
+  marginLeftPrev: string
+) => keyframes`
+ 0% { opacity: 0.1; left: ${marginLeftPrev}; transition: left 2000ms ease; }
  20% { opacity: 0.3;}
  40% { opacity: 0.5 } 
  60% { opacity: 0.7 }
  80% { opacity: 0.9 }
- 100% { opacity: 1; left: 240px; transition-property: opacity, left; transition: left 2000ms ease; }`;
+ 100% { opacity: 1; left: ${marginLeftPrev}; transition-property: opacity, left; transition: left 2000ms ease; }`;
 
 // position: ${(props) => (props.firstItem ? "static" : "absolute")};
 // left: ${(props) =>
@@ -47,19 +48,16 @@ const CardWrapper = styled.div.attrs(
   perspective: 2000;
   display: -ms-flexbox;
   position: ${(props) =>
-    (props.detailId === 1 && props.showDetails < 3) ||
-    (props.detailId === props.showDetails - 1 && props.detailId !== 1)
-      ? "static"
+    (props.detailId === 1 && props.showDetails < 2) ||
+    (props.detailId === 2 && props.showDetails === 2) ||
+    (props.detailId > 2 && props.showDetails > 2)
+      ? "relative"
       : "absolute"};
   right: ${(props) =>
     props.detailId === 1 && props.showDetails >= 3 ? "0" : "auto"};
 
-  margin-left: ${(props) =>
-    props.detailId > 1 &&
-    props.showDetails > props.detailId &&
-    props.detailId >= props.showDetails - 1
-      ? "150px;"
-      : "0"};
+  left: ${(props) =>
+    props.detailId === 1 && props.showDetails >= 2 ? "650px;" : "0"};
   opacity: ${(props) =>
     props.detailId === 1 ||
     (props.showDetails > 1 &&
@@ -69,14 +67,18 @@ const CardWrapper = styled.div.attrs(
       : "0"};
 
   display: ${(props) =>
-    props.detailId === 1 ||
-    (props.showDetails > 1 &&
-      props.detailId >= props.showDetails - 1 &&
-      props.detailId <= props.showDetails + 1)
-      ? "block"
-      : "none"};
-  //animation: ${opacityAnimation} 2s linear infinite;
-  //animation-iteration-count: 1;
+    props.detailId <= props.showDetails ? "block" : "none"};
+  animation: ${(props) =>
+      opacityAnimation(
+        "0px",
+        props.showDetails === 1
+          ? "0px"
+          : props.showDetails === 2 && props.detailId === 1
+          ? "650px"
+          : "0"
+      )}
+    2s linear infinite;
+  animation-iteration-count: 1;
 `;
 
 const CardContainer: any = styled(motion.div)`
@@ -147,8 +149,7 @@ export const CardDetailsPreview: React.FC<IProps> = (props) => {
   // const rotateY = useTransform(x, [-100, 0], [-30, 0]);
   const heightCard = 700;
   const { firstItem, lastItem, amountCards, showDetails } = props;
-  console.log("props.id", props);
-  console.log("showDetails", showDetails);
+
   return (
     <CardWrapper detailId={props.id} showDetails={showDetails}>
       <CardContainer
@@ -166,6 +167,7 @@ export const CardDetailsPreview: React.FC<IProps> = (props) => {
       </CardContainer>
       {!firstItem &&
         !lastItem &&
+        false &&
         props.info.map((item) => (
           <InfoContainer key={item.id} pY={item.pY}>
             <TextInfoContainer>
