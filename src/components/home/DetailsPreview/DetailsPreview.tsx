@@ -8,42 +8,28 @@ interface IProps extends Detail {
   lastItem: boolean;
   amountCards: number;
   showDetails: number;
+  nextCart: boolean;
 }
 
-const opacityAnimation = (
-  marginLeft: string,
-  marginLeftPrev: string
-) => keyframes`
- 0% { opacity: 0.1; left: ${marginLeftPrev}; transition: left 2000ms ease; }
- 20% { opacity: 0.3;}
- 40% { opacity: 0.5 } 
- 60% { opacity: 0.7 }
- 80% { opacity: 0.9 }
- 100% { opacity: 1; left: ${marginLeftPrev}; transition-property: opacity, left; transition: left 2000ms ease; }`;
+interface AnimationToLeftType {
+  marginLeft: string;
+  marginLeftPrev: string;
+}
 
-// position: ${(props) => (props.firstItem ? "static" : "absolute")};
-// left: ${(props) =>
-//   props.firstItem
-//     ? 0
-//     : props.lastItem && props.amountCards > 2
-//     ? "auto"
-//     : "240px"};
-// right: ${(props) => (props.lastItem ? "0px" : "auto")};
-// opacity: ${(props) =>
-//     props.firstItem && props.amountCards > 2 ? "0.7" : "1"};
+const opacityAnimation = ({
+  marginLeft,
+  marginLeftPrev,
+}: AnimationToLeftType) => keyframes`
+ 0% { opacity: 0; left: ${marginLeft}; }
+ 100% { opacity: 1; left: ${marginLeftPrev}; }`;
 
 const CardWrapper = styled.div.attrs(
-  (props: {
-    firstItem: boolean;
-    lastItem: boolean;
-    detailId: number;
-    showDetails: number;
-  }) => ({
+  (props: { nextCart: boolean; detailId: number; showDetails: number }) => ({
     detailId: props.detailId,
     showDetails: props.showDetails,
+    nextCart: props.nextCart,
   })
 )`
-  overflow: visible;
   min-height: 50vh;
   perspective: 2000;
   display: -ms-flexbox;
@@ -57,29 +43,59 @@ const CardWrapper = styled.div.attrs(
     props.detailId === 1 && props.showDetails >= 3 ? "0" : "auto"};
 
   left: ${(props) =>
-    props.detailId === 1 && props.showDetails >= 2 ? "650px;" : "0"};
+    props.detailId === 1 && props.showDetails >= 2
+      ? animationToLeft(props.detailId, props.showDetails)[
+          props.nextCart ? "marginLeft" : "marginLeft"
+        ]
+      : animationToLeft(props.detailId, props.showDetails)[
+          props.nextCart ? "marginLeftPrev" : "marginLeft"
+        ]};
   opacity: ${(props) =>
-    props.detailId === 1 ||
-    (props.showDetails > 1 &&
-      props.detailId >= props.showDetails - 1 &&
-      props.detailId <= props.showDetails + 1)
-      ? "1"
-      : "0"};
+    props.detailId === 1 || props.detailId <= props.showDetails ? "1" : "0"};
 
-  display: ${(props) =>
-    props.detailId <= props.showDetails ? "block" : "none"};
+  visibility: ${(props) =>
+    props.detailId <= props.showDetails ? "visible" : "hidden"};
   animation: ${(props) =>
       opacityAnimation(
-        "0px",
-        props.showDetails === 1
-          ? "0px"
-          : props.showDetails === 2 && props.detailId === 1
-          ? "650px"
-          : "0"
+        animationToLeft(props.detailId, props.showDetails, props.nextCart)
       )}
-    2s linear infinite;
+    0.4s linear infinite;
   animation-iteration-count: 1;
 `;
+
+const animationToLeft = (
+  detailId: number,
+  showDetails: number,
+  nextCart?: boolean
+): AnimationToLeftType => {
+  if (detailId != 1 && showDetails === detailId + 1)
+    return { marginLeft: "0px", marginLeftPrev: "250px" };
+
+  if (detailId === 1) {
+    if (showDetails === 2)
+      return nextCart
+        ? { marginLeft: "0px", marginLeftPrev: "250px" }
+        : { marginLeft: "250px", marginLeftPrev: "calc(100% - 250px)" };
+
+    if (showDetails > 3)
+      return nextCart
+        ? {
+            marginLeft: "250px",
+            marginLeftPrev: "calc(100% - 250px)",
+          }
+        : {
+            marginLeft: "calc(100% - 250px)",
+            marginLeftPrev: "250px",
+          };
+
+    if (showDetails > 2)
+      return nextCart
+        ? { marginLeft: "250px", marginLeftPrev: "calc(100% - 250px)" }
+        : { marginLeft: "calc(100% - 250px)", marginLeftPrev: "250px" };
+  }
+
+  return { marginLeft: "0px", marginLeftPrev: "0px" };
+};
 
 const CardContainer: any = styled(motion.div)`
   position: relative;
@@ -148,10 +164,14 @@ export const CardDetailsPreview: React.FC<IProps> = (props) => {
   // const rotateX = useTransform(y, [-100, 100], [30, -30]);
   // const rotateY = useTransform(x, [-100, 0], [-30, 0]);
   const heightCard = 700;
-  const { firstItem, lastItem, amountCards, showDetails } = props;
+  const { firstItem, lastItem, nextCart, showDetails } = props;
 
   return (
-    <CardWrapper detailId={props.id} showDetails={showDetails}>
+    <CardWrapper
+      detailId={props.id}
+      showDetails={showDetails}
+      nextCart={nextCart}
+    >
       <CardContainer
       // style={{ x: 0, y, rotateX, rotateY, z: 100, height: heightCard }}
       // drag
@@ -160,23 +180,29 @@ export const CardDetailsPreview: React.FC<IProps> = (props) => {
       // whileTap={{ cursor: "grabbing" }}
       >
         <img
-          height={firstItem ? heightCard - 50 : heightCard}
+          height={
+            props.id === 1 || props.id === showDetails - 1
+              ? heightCard
+              : heightCard - 50
+          }
           src={props.image}
         />
         <ShoesWrapper />
       </CardContainer>
-      {!firstItem &&
-        !lastItem &&
-        false &&
-        props.info.map((item) => (
-          <InfoContainer key={item.id} pY={item.pY}>
-            <TextInfoContainer>
-              <TextInfoTitle>{item.textInfo.title}</TextInfoTitle>
-              <TextInfo>{item.textInfo.text}</TextInfo>
-            </TextInfoContainer>
-            <InfoLine width={item.widthLine} />
-          </InfoContainer>
-        ))}
+      {
+        // !firstItem &&
+        // !lastItem &&
+        showDetails === props.id + 1 &&
+          props.info.map((item) => (
+            <InfoContainer key={item.id} pY={item.pY}>
+              <TextInfoContainer>
+                <TextInfoTitle>{item.textInfo.title}</TextInfoTitle>
+                <TextInfo>{item.textInfo.text}</TextInfo>
+              </TextInfoContainer>
+              <InfoLine width={item.widthLine} />
+            </InfoContainer>
+          ))
+      }
     </CardWrapper>
   );
 };

@@ -2,12 +2,11 @@ import React, { SetStateAction, useMemo, useState, WheelEvent } from "react";
 import styled from "styled-components";
 import { CardDetailsPreview } from "./DetailsPreview";
 import { detailsData } from "../../../data/detailsDate";
-import debounce from "debounce";
 import { wheelTimeoutHook } from "../../../hooks/wheelTimeoutHook";
 
 const Wrapper = styled.div`
   max-width: 1512px;
-  min-width: 1380px;
+  min-width: 720px;
   height: 100%;
   overflow: hidden;
   margin: 0 auto;
@@ -30,22 +29,21 @@ const TextInfo = styled.h3`
 const DetailsPreview: React.FC = () => {
   const [showDetails, setShowDetails] = useState(1);
   const [loading, setLoading] = useState(false);
-
-  const details = useMemo(() => {
-    return detailsData.reverse();
-  }, [showDetails]);
+  const [nextCart, setNextCart] = useState(true);
 
   const handleScroll = (event: WheelEvent<HTMLDivElement> | undefined) => {
     const { nevEvent } = wheelTimeoutHook({
       event,
       loading,
       setLoading,
-      delay: 2000,
+      delay: 400,
     });
 
     if (nevEvent) {
       const count = (prevCount: number) => {
-        return event?.deltaY && event.deltaY < 0
+        const next = event?.deltaY && event.deltaY < 0;
+        setNextCart(() => !!next);
+        return next
           ? prevCount < detailsData.length
             ? ++prevCount
             : prevCount
@@ -69,6 +67,7 @@ const DetailsPreview: React.FC = () => {
           <CardDetailsPreview
             key={props.id}
             firstItem={index === 0}
+            nextCart={nextCart}
             lastItem={index === array.length - 1}
             showDetails={showDetails}
             amountCards={array.length}
