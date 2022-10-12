@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { CardDetailsPreview } from "./DetailsPreview";
 import { detailsData } from "../../../data/detailsDate";
 import { wheelTimeoutHook } from "../../../hooks/wheelTimeoutHook";
+import { NextCartType } from "src/hooks/animationCartHook";
 
 const Wrapper = styled.div`
   max-width: 1512px;
@@ -14,8 +15,9 @@ const Wrapper = styled.div`
 
 const WrapperCardDetails = styled.div`
   display: flex;
-  height: 100%;
   position: relative;
+  width: 100%;
+  height: 100vh;
 `;
 
 const TextInfo = styled.h3`
@@ -29,7 +31,7 @@ const TextInfo = styled.h3`
 const DetailsPreview: React.FC = () => {
   const [showDetails, setShowDetails] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [nextCart, setNextCart] = useState(true);
+  const [nextCart, setNextCart] = useState<NextCartType>(0);
 
   const handleScroll = (event: WheelEvent<HTMLDivElement> | undefined) => {
     const { nevEvent } = wheelTimeoutHook({
@@ -42,8 +44,8 @@ const DetailsPreview: React.FC = () => {
     if (nevEvent) {
       const count = (prevCount: number) => {
         const next = event?.deltaY && event.deltaY < 0;
-        setNextCart(() => !!next);
-        return next
+        setNextCart(() => !!next ? 1 : -1);
+        return !!next
           ? prevCount < detailsData.length
             ? ++prevCount
             : prevCount
