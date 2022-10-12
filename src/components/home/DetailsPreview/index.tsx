@@ -47,11 +47,11 @@ const DetailsPreview: React.FC = () => {
         const next = event?.deltaY && event.deltaY < 0;
         setNextCart(() => (!!next ? 1 : -1));
         return !!next
-          ? prevCount < detailsData.length
-            ? ++prevCount
+          ? prevCount > 1
+            ? --prevCount
             : prevCount
-          : prevCount > 1
-          ? --prevCount
+          : prevCount < detailsData.length
+          ? ++prevCount
           : prevCount;
       };
       setShowDetails((prev) => count(prev));

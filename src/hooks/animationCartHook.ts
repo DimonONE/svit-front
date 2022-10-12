@@ -16,7 +16,7 @@ export const animationCustom = (
   // transform: translate(${marginLeftNext});
 
   if (detailId === 1) {
-    if (showDetails === 1 && nextCart === -1)
+    if (showDetails === 1 && nextCart === 1)
       return ` ${animation({ marginLeftNext: "0px" })} `;
 
     if (showDetails === 2) {
@@ -45,11 +45,11 @@ export const animationCustom = (
     return ` ${animation({ marginLeftNext: "250px" })} `;
   }
 
-  if (showDetails === 1 && detailId === 2 && nextCart === -1) {
+  if (showDetails === 1 && detailId === 2 && nextCart === 1) {
     return ` ${animation({ marginLeftNext: "20px" })} `;
   }
 
-  if (showDetails >= 2 && nextCart === -1) {
+  if (showDetails >= 2 && nextCart === 1) {
     return ` ${animation({ marginLeftNext: "20px" })} `;
   }
 
