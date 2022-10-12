@@ -11,12 +11,11 @@ export const detailsData: Detail[] = [
   {
     id: 1,
     image: GlassImg,
-    margin: 0,
     info: [
       {
         id: 1,
-        widthLine: 300,
-        pY: 155,
+        widthLine: 370,
+        pY: 105,
         textInfo: {
           title: "Загартоване матове скло",
           text: "Скло з приємною матовою поверхнею, олеофобним покриттям, яке захищає скло від відбитків пальців",
@@ -24,8 +23,8 @@ export const detailsData: Detail[] = [
       },
       {
         id: 2,
-        widthLine: 300,
-        pY: 415,
+        widthLine: 370,
+        pY: 315,
         textInfo: {
           title: "Інтуїтивна навігація",
           text: "Фрезероване скло дозволяє швидко і просто скористатися панеллю завдяки тактильним відчуттям",
@@ -36,12 +35,11 @@ export const detailsData: Detail[] = [
   {
     id: 2,
     image: BoardImg,
-    margin: 0,
     info: [
       {
         id: 1,
-        widthLine: 200,
-        pY: 100,
+        widthLine: 370,
+        pY: 65,
         textInfo: {
           title: "Можливість взаємодії з кожним міліметром панелі",
           text: "Забезпечується чуттєвим сенсором уздовж усієї поверхні ",
@@ -49,8 +47,8 @@ export const detailsData: Detail[] = [
       },
       {
         id: 2,
-        widthLine: 300,
-        pY: 300,
+        widthLine: 410,
+        pY: 270,
         textInfo: {
           title: "Індивідуальна підсвітка",
           text: "При натиску на будь-яку іконку",
@@ -58,8 +56,8 @@ export const detailsData: Detail[] = [
       },
       {
         id: 3,
-        widthLine: 300,
-        pY: 400,
+        widthLine: 398,
+        pY: 350,
         textInfo: {
           title: "Особливі візуальні ефекти",
           text: "Реалізовані за допомогою масиву світлодіодів",
@@ -80,7 +78,6 @@ export const detailsData: Detail[] = [
     id: 3,
     image: FameTroughImg,
     imagePrev: FameTroughImg,
-    margin: 0,
     info: [
       {
         id: 1,

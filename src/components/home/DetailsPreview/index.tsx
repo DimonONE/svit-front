@@ -45,7 +45,7 @@ const DetailsPreview: React.FC = () => {
     if (nevEvent) {
       const count = (prevCount: number) => {
         const next = event?.deltaY && event.deltaY < 0;
-        setNextCart(() => !!next ? 1 : -1);
+        setNextCart(() => (!!next ? 1 : -1));
         return !!next
           ? prevCount < detailsData.length
             ? ++prevCount
@@ -66,14 +66,11 @@ const DetailsPreview: React.FC = () => {
         простіше, ваше <br /> життя - краще
       </TextInfo>
       <WrapperCardDetails onWheel={handleScroll}>
-        {detailsData.map((props, index, array) => (
+        {detailsData.map((props) => (
           <CardDetailsPreview
             key={props.id}
-            firstItem={index === 0}
             nextCart={nextCart}
-            lastItem={index === array.length - 1}
             showDetails={showDetails}
-            amountCards={array.length}
             {...props}
           />
         ))}

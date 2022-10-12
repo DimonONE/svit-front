@@ -11,7 +11,6 @@ export interface DetailInfo {
 export interface Detail {
   id: number;
   image: string;
-  margin: string | number;
   info: DetailInfo[];
   imagePrev?: string;
 }
