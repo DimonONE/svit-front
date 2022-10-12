@@ -21,8 +21,9 @@ const CardWrapper = styled.div.attrs(
 )`
   z-index: ${(props) => 7 - props.detailId };
   position: absolute;
-  visibility: ${(props) => props.detailId <= props.showDetails ? "visible" : "hidden"};
+  left: ${(props) => props.detailId !== 1 ? '20px' : '0' } ;
   ${(props) => animationCustom(props.detailId, props.showDetails, props.nextCart)}
+  visibility: ${(props) => props.detailId === 1 || props.detailId === props.showDetails || props.detailId + 1 === props.showDetails ? "visible" : "hidden"};
 `;
 
 // z-index: ${(props) =>
@@ -103,7 +104,7 @@ export const CardDetailsPreview: React.FC<IProps> = (props) => {
 
   // const rotateX = useTransform(y, [-100, 100], [30, -30]);
   // const rotateY = useTransform(x, [-100, 0], [-30, 0]);
-  const heightCard = 700;
+  const heightCard = 600;
   const { firstItem, lastItem, nextCart, showDetails } = props;
 
   return (
@@ -113,6 +114,11 @@ export const CardDetailsPreview: React.FC<IProps> = (props) => {
       nextCart={nextCart}
     >
       <CardContainer
+      style={{  
+        height: props.id === 1 || props.id === showDetails - 1
+          ? heightCard
+          : heightCard - 50
+       }}
       // style={{ x: 0, y, rotateX, rotateY, z: 100, height: heightCard }}
       // drag
       // dragElastic={0.16}
@@ -120,11 +126,7 @@ export const CardDetailsPreview: React.FC<IProps> = (props) => {
       // whileTap={{ cursor: "grabbing" }}
       >
         <img
-          height={
-            props.id === 1 || props.id === showDetails - 1
-              ? heightCard
-              : heightCard - 50
-          }
+          height="100%"
           src={props.image}
         />
         <ShoesWrapper />

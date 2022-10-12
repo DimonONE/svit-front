@@ -111,126 +111,126 @@ export const detailsData: Detail[] = [
       },
     ],
   },
-  {
-    id: 4,
-    image: FrameIMG,
-    imagePrev: TroughWithoutFrameIMG,
-    margin: 0,
-    info: [
-      {
-        id: 1,
-        widthLine: 250,
-        pY: 240,
-        textInfo: {
-          title: "Інтерфейс KNX",
-          text: "Забезпечує сумістність з будь-якою системою розумного будинку",
-        },
-      },
-    ],
-  },
-  {
-    id: 5,
-    image: TroughWithoutFrameIMG,
-    imagePrev: TroughIMG,
-    margin: 0,
-    info: [
-      {
-        id: 1,
-        widthLine: 200,
-        pY: 0,
-        textInfo: {
-          title: "Швидкий і універсальний монтаж",
-          text: "За допомогою отворів на зворотній поверхні вимикача",
-        },
-      },
-      {
-        id: 2,
-        widthLine: 200,
-        pY: 0,
-        textInfo: {
-          title: "Анодований алюміній",
-          text: "7000-ї серії",
-        },
-      },
-      {
-        id: 3,
-        widthLine: 200,
-        pY: 0,
-        textInfo: {
-          title: "Просте встановлення",
-          text: "Лише два ґвинти",
-        },
-      },
-    ],
-  },
-  {
-    id: 6,
-    image: RoundaboutIMG,
-    imagePrev: TroughIMG,
-    margin: 0,
-    info: [
-      {
-        id: 1,
-        widthLine: 200,
-        pY: 0,
-        textInfo: {
-          title: "Швидкий і універсальний монтаж",
-          text: "За допомогою отворів на зворотній поверхні вимикача",
-        },
-      },
-      {
-        id: 2,
-        widthLine: 200,
-        pY: 0,
-        textInfo: {
-          title: "Анодований алюміній",
-          text: "7000-ї серії",
-        },
-      },
-      {
-        id: 3,
-        widthLine: 200,
-        pY: 0,
-        textInfo: {
-          title: "Просте встановлення",
-          text: "Лише два ґвинти",
-        },
-      },
-    ],
-  },
-  {
-    id: 7,
-    image: TroughIMG,
-    imagePrev: TroughIMG,
-    margin: 0,
-    info: [
-      {
-        id: 1,
-        widthLine: 200,
-        pY: 0,
-        textInfo: {
-          title: "Швидкий і універсальний монтаж",
-          text: "За допомогою отворів на зворотній поверхні вимикача",
-        },
-      },
-      {
-        id: 2,
-        widthLine: 200,
-        pY: 0,
-        textInfo: {
-          title: "Анодований алюміній",
-          text: "7000-ї серії",
-        },
-      },
-      {
-        id: 3,
-        widthLine: 200,
-        pY: 0,
-        textInfo: {
-          title: "Просте встановлення",
-          text: "Лише два ґвинти",
-        },
-      },
-    ],
-  },
+  // {
+  //   id: 4,
+  //   image: FrameIMG,
+  //   imagePrev: TroughWithoutFrameIMG,
+  //   margin: 0,
+  //   info: [
+  //     {
+  //       id: 1,
+  //       widthLine: 250,
+  //       pY: 240,
+  //       textInfo: {
+  //         title: "Інтерфейс KNX",
+  //         text: "Забезпечує сумістність з будь-якою системою розумного будинку",
+  //       },
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 5,
+  //   image: TroughWithoutFrameIMG,
+  //   imagePrev: TroughIMG,
+  //   margin: 0,
+  //   info: [
+  //     {
+  //       id: 1,
+  //       widthLine: 200,
+  //       pY: 0,
+  //       textInfo: {
+  //         title: "Швидкий і універсальний монтаж",
+  //         text: "За допомогою отворів на зворотній поверхні вимикача",
+  //       },
+  //     },
+  //     {
+  //       id: 2,
+  //       widthLine: 200,
+  //       pY: 0,
+  //       textInfo: {
+  //         title: "Анодований алюміній",
+  //         text: "7000-ї серії",
+  //       },
+  //     },
+  //     {
+  //       id: 3,
+  //       widthLine: 200,
+  //       pY: 0,
+  //       textInfo: {
+  //         title: "Просте встановлення",
+  //         text: "Лише два ґвинти",
+  //       },
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 6,
+  //   image: RoundaboutIMG,
+  //   imagePrev: TroughIMG,
+  //   margin: 0,
+  //   info: [
+  //     {
+  //       id: 1,
+  //       widthLine: 200,
+  //       pY: 0,
+  //       textInfo: {
+  //         title: "Швидкий і універсальний монтаж",
+  //         text: "За допомогою отворів на зворотній поверхні вимикача",
+  //       },
+  //     },
+  //     {
+  //       id: 2,
+  //       widthLine: 200,
+  //       pY: 0,
+  //       textInfo: {
+  //         title: "Анодований алюміній",
+  //         text: "7000-ї серії",
+  //       },
+  //     },
+  //     {
+  //       id: 3,
+  //       widthLine: 200,
+  //       pY: 0,
+  //       textInfo: {
+  //         title: "Просте встановлення",
+  //         text: "Лише два ґвинти",
+  //       },
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 7,
+  //   image: TroughIMG,
+  //   imagePrev: TroughIMG,
+  //   margin: 0,
+  //   info: [
+  //     {
+  //       id: 1,
+  //       widthLine: 200,
+  //       pY: 0,
+  //       textInfo: {
+  //         title: "Швидкий і універсальний монтаж",
+  //         text: "За допомогою отворів на зворотній поверхні вимикача",
+  //       },
+  //     },
+  //     {
+  //       id: 2,
+  //       widthLine: 200,
+  //       pY: 0,
+  //       textInfo: {
+  //         title: "Анодований алюміній",
+  //         text: "7000-ї серії",
+  //       },
+  //     },
+  //     {
+  //       id: 3,
+  //       widthLine: 200,
+  //       pY: 0,
+  //       textInfo: {
+  //         title: "Просте встановлення",
+  //         text: "Лише два ґвинти",
+  //       },
+  //     },
+  //   ],
+  // },
 ];

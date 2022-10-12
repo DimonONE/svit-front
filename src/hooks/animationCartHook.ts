@@ -12,7 +12,7 @@ export const animationCustom = (
     nextCart?: -1 | 0 | 1
   ): string => {
   
-  const animation = ({marginLeft, marginLeftNext}: AnimationToLeftType) => `
+  const animation = ({visibility, marginLeft, marginLeftNext}: AnimationToLeftType | any) => `
    transition: 1s;
    transform: translate(${marginLeftNext});
   `;
@@ -32,25 +32,27 @@ export const animationCustom = (
                 `
       }
 
-      if (showDetails >= 3)
-        return nextCart === 1
-          ? `
-              ${animation({marginLeft: "250px", marginLeftNext: "calc(100% + 200px)"})}
-              right: 400px;
-            `
-          :  `
-             
-              ${animation({marginLeft: "calc(100% - 250px)", marginLeftNext: "250px"})}
-            ` ;
+      if (showDetails >= 3) {
+        if(nextCart) {
+          return  `
+                  ${animation({marginLeft: "250px", marginLeftNext: "calc(100% + 400px)"})}
+                `
+        }
+        return `${animation({marginLeft: "calc(100% - 250px)", marginLeftNext: "250px"})} `
+      }
+      
       return ' left: 0;'
     }
   
-  if(showDetails > 2 && nextCart && showDetails === detailId + 1) {
+  if( nextCart && showDetails === detailId + 1) {
     return  ` ${animation({marginLeft: "250px", marginLeftNext: "250px"})} `
   }
 
+  if(showDetails === 1 && detailId === 2 && nextCart === -1 ) {
+    return  ` ${animation({marginLeft: "250px", marginLeftNext: "0px"})} `
+  }
   
-  if(showDetails >= 2 && !!nextCart ) {
+  if(showDetails >= 2 && nextCart === -1 ) {
     return  ` ${animation({marginLeft: "250px", marginLeftNext: "0px"})} `
   }
 
