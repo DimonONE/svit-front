@@ -10,10 +10,9 @@ export const animationCustom = (
   nextCart?: -1 | 0 | 1
 ): string => {
   const animation = ({ marginLeftNext }: AnimationToLeftType) => `
-     transition: left 1.2s, visibility 1s;
-     left: ${marginLeftNext};
+     transition: transform 1.2s, visibility 1s;
+     transform: translate(${marginLeftNext});
   `;
-  // transform: translate(${marginLeftNext});
 
   if (detailId === 1) {
     if (showDetails === 1 && nextCart === 1)
@@ -35,13 +34,13 @@ export const animationCustom = (
                 `;
       }
       return `${animation({
-        marginLeftNext: "250px",
+        marginLeftNext: "0px",
       })} `;
     }
-    return " left: 0px;";
+    return " transform: translate(0px);";
   }
 
-  if (nextCart && showDetails === detailId + 1) {
+  if (!!nextCart && showDetails === detailId + 1) {
     return ` ${animation({ marginLeftNext: "250px" })} `;
   }
 
