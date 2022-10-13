@@ -10,7 +10,7 @@ export const animationCustom = (
   nextCart?: -1 | 0 | 1
 ): string => {
   const animation = ({ marginLeftNext }: AnimationToLeftType) => `
-     transition: transform 1.2s, visibility 1s;
+     transition: transform 1.2s, visibility 0.5s, height 2s;
      transform: translate(${marginLeftNext});
   `;
 
@@ -19,19 +19,12 @@ export const animationCustom = (
       return ` ${animation({ marginLeftNext: "0px" })} `;
 
     if (showDetails === 2) {
-      if (nextCart === 1) {
-        return `${animation({ marginLeftNext: "250px" })}`;
-      }
       return `${animation({ marginLeftNext: "250px" })}`;
     }
 
     if (showDetails >= 3) {
       if (nextCart) {
-        return `
-                  ${animation({
-                    marginLeftNext: "80vw",
-                  })}
-                `;
+        return ` ${animation({ marginLeftNext: "80vw" })}`;
       }
       return `${animation({
         marginLeftNext: "0px",
@@ -40,16 +33,20 @@ export const animationCustom = (
     return " transform: translate(0px);";
   }
 
+  if (detailId === 2 && showDetails > 3) {
+    return ` ${animation({ marginLeftNext: "80vw" })} `;
+  }
+
   if (!!nextCart && showDetails === detailId + 1) {
     return ` ${animation({ marginLeftNext: "250px" })} `;
   }
 
   if (showDetails === 1 && detailId === 2 && nextCart === 1) {
-    return ` ${animation({ marginLeftNext: "20px" })} `;
+    return ` ${animation({ marginLeftNext: "0px" })}`;
   }
 
   if (showDetails >= 2 && nextCart === 1) {
-    return ` ${animation({ marginLeftNext: "20px" })} `;
+    return ` ${animation({ marginLeftNext: "0px" })} `;
   }
 
   return "";

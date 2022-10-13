@@ -65,8 +65,8 @@ export const detailsData: Detail[] = [
       },
       {
         id: 4,
-        widthLine: 300,
-        pY: 600,
+        widthLine: 440,
+        pY: 450,
         textInfo: {
           title: "Контроль безлічі показників",
           text: "Шляхом вбудованих датчиків освітлення, температури, вологості та тиску",
@@ -108,22 +108,22 @@ export const detailsData: Detail[] = [
       },
     ],
   },
-  {
-    id: 4,
-    image: FrameIMG,
-    imagePrev: TroughWithoutFrameIMG,
-    info: [
-      {
-        id: 1,
-        widthLine: 250,
-        pY: 240,
-        textInfo: {
-          title: "Інтерфейс KNX",
-          text: "Забезпечує сумістність з будь-якою системою розумного будинку",
-        },
-      },
-    ],
-  },
+  // {
+  //   id: 4,
+  //   image: TroughWithoutFrameIMG,
+  //   imagePrev: TroughWithoutFrameIMG,
+  //   info: [
+  //     {
+  //       id: 1,
+  //       widthLine: 250,
+  //       pY: 240,
+  //       textInfo: {
+  //         title: "Інтерфейс KNX",
+  //         text: "Забезпечує сумістність з будь-якою системою розумного будинку",
+  //       },
+  //     },
+  //   ],
+  // },
   // {
   //   id: 5,
   //   image: TroughWithoutFrameIMG,

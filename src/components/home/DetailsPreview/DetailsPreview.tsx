@@ -13,7 +13,7 @@ interface IProps extends Detail {
   nextCart: NextCartType;
 }
 
-const CardWrapper = styled.div.attrs(
+const Card = styled.div.attrs(
   (props: {
     nextCart: NextCartType;
     detailId: number;
@@ -78,13 +78,13 @@ const TextInfoContainer = styled.div`
 
 const TextInfo = styled.span`
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 19px;
 `;
 
 const TextInfoTitle = styled.span`
   font-weight: 700;
-  font-size: 20px;
+  font-size: 19px;
   line-height: 24px;
 `;
 
@@ -96,47 +96,54 @@ const InfoLine: any = styled.div.attrs((props: { width: string }) => ({
   border-top: 1px solid #ffffff;
 `;
 
-export const CardDetailsPreview: React.FC<IProps> = (props) => {
-  // const x = useMotionValue(0);
-  // const y = useMotionValue(0);
+const CardWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
-  // const rotateX = useTransform(y, [-100, 100], [30, -30]);
-  // const rotateY = useTransform(x, [-100, 0], [-30, 0]);
+export const CardDetailsPreview: React.FC<IProps> = (props) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useTransform(y, [-100, 100], [30, -30]);
+  const rotateY = useTransform(x, [-100, 0], [-30, 0]);
   const heightCard = 600;
   const { nextCart, showDetails } = props;
 
   return (
-    <CardWrapper
-      detailId={props.id}
-      showDetails={showDetails}
-      nextCart={nextCart}
-    >
-      <CardContainer
-        style={{
-          height:
-            props.id === 1 || props.id === showDetails - 1
-              ? heightCard
-              : heightCard - 50,
-        }}
-        // style={{ x: 0, y, rotateX, rotateY, z: 100, height: heightCard }}
-        // drag
-        // dragElastic={0.16}
-        // dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-        // whileTap={{ cursor: "grabbing" }}
-      >
-        <img height="100%" src={props.image} />
-        <ShoesWrapper />
-      </CardContainer>
-      {showDetails === props.id + 1 &&
-        props.info.map((item) => (
-          <InfoContainer key={item.id} pY={item.pY}>
-            <TextInfoContainer>
-              <TextInfoTitle>{item.textInfo.title}</TextInfoTitle>
-              <TextInfo>{item.textInfo.text}</TextInfo>
-            </TextInfoContainer>
-            <InfoLine width={item.widthLine} />
-          </InfoContainer>
-        ))}
+    <CardWrapper>
+      <Card detailId={props.id} showDetails={showDetails} nextCart={nextCart}>
+        <CardContainer
+          style={{
+            x: 0,
+            y,
+            rotateX,
+            rotateY,
+            z: 100,
+            height:
+              props.id === 1 || props.id === showDetails - 1
+                ? heightCard
+                : heightCard - 50,
+          }}
+          drag
+          dragElastic={0.16}
+          dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+          whileTap={{ cursor: "grabbing" }}
+        >
+          <img height="100%" src={props.image} />
+          <ShoesWrapper />
+        </CardContainer>
+        {showDetails === props.id + 1 &&
+          props.info.map((item) => (
+            <InfoContainer key={item.id} pY={item.pY}>
+              <TextInfoContainer>
+                <TextInfoTitle>{item.textInfo.title}</TextInfoTitle>
+                <TextInfo>{item.textInfo.text}</TextInfo>
+              </TextInfoContainer>
+              <InfoLine width={item.widthLine} />
+            </InfoContainer>
+          ))}
+      </Card>
     </CardWrapper>
   );
 };
