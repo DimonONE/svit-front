@@ -73,6 +73,7 @@ const TextInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 234px;
+  width: 100%;
   margin-bottom: 30px;
 `;
 
