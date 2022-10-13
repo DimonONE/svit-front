@@ -10,7 +10,7 @@ export const animationCustom = (
   nextCart?: -1 | 0 | 1
 ): string => {
   const animation = ({ marginLeftNext }: AnimationToLeftType) => `
-     transition: transform 1.2s, visibility 0.5s, height 2s;
+     transition: transform 1.2s, visibility 0.7s, height 2s;
      transform: translate(${marginLeftNext});
   `;
 
