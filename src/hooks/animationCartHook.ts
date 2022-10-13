@@ -30,7 +30,7 @@ export const animationCustom = (
       if (nextCart) {
         return `
                   ${animation({
-                    marginLeftNext: "83%",
+                    marginLeftNext: "80vw",
                   })}
                 `;
       }

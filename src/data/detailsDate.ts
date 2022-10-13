@@ -108,23 +108,22 @@ export const detailsData: Detail[] = [
       },
     ],
   },
-  // {
-  //   id: 4,
-  //   image: FrameIMG,
-  //   imagePrev: TroughWithoutFrameIMG,
-  //   margin: 0,
-  //   info: [
-  //     {
-  //       id: 1,
-  //       widthLine: 250,
-  //       pY: 240,
-  //       textInfo: {
-  //         title: "Інтерфейс KNX",
-  //         text: "Забезпечує сумістність з будь-якою системою розумного будинку",
-  //       },
-  //     },
-  //   ],
-  // },
+  {
+    id: 4,
+    image: FrameIMG,
+    imagePrev: TroughWithoutFrameIMG,
+    info: [
+      {
+        id: 1,
+        widthLine: 250,
+        pY: 240,
+        textInfo: {
+          title: "Інтерфейс KNX",
+          text: "Забезпечує сумістність з будь-якою системою розумного будинку",
+        },
+      },
+    ],
+  },
   // {
   //   id: 5,
   //   image: TroughWithoutFrameIMG,
