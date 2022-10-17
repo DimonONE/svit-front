@@ -7,10 +7,10 @@ export type NextCartType = -1 | 1 | 0;
 export const animationCustom = (
   detailId: number,
   showDetails: number,
-  nextCart?: -1 | 0 | 1
+  nextCart: -1 | 0 | 1
 ): string => {
   const animation = ({ marginLeftNext }: AnimationToLeftType) => `
-     transition: transform 1.2s, visibility 0.7s, height 2s;
+     transition: transform 1.2s, visibility 0.9s, height 2s;
      transform: translate(${marginLeftNext});
   `;
 

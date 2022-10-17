@@ -85,8 +85,8 @@ export const detailsData: Detail[] = [
     info: [
       {
         id: 1,
-        widthLine: 295,
-        pY: 15,
+        widthLine: 435,
+        pY: -15,
         textInfo: {
           title: "М’який натиск",
           text: "Завдяки пружинній рамці",
@@ -94,8 +94,8 @@ export const detailsData: Detail[] = [
       },
       {
         id: 2,
-        widthLine: 280,
-        pY: 248,
+        widthLine: 435,
+        pY: 205,
         textInfo: {
           title: "Тaptic Engine",
           text: "Забезпечує приємні тактильні відчуття ",
@@ -103,8 +103,8 @@ export const detailsData: Detail[] = [
       },
       {
         id: 3,
-        widthLine: 248,
-        pY: 420,
+        widthLine: 388,
+        pY: 390,
         textInfo: {
           title: "Чутливі тензодатчики",
           text: "зчитують силу натиску, забезпечуючи багатофункціональність приладу",
@@ -119,8 +119,8 @@ export const detailsData: Detail[] = [
     info: [
       {
         id: 1,
-        widthLine: 250,
-        pY: 240,
+        widthLine: 430,
+        pY: 200,
         textInfo: {
           title: "Інтерфейс KNX",
           text: "Забезпечує сумістність з будь-якою системою розумного будинку",
@@ -134,8 +134,8 @@ export const detailsData: Detail[] = [
     info: [
       {
         id: 1,
-        widthLine: 200,
-        pY: 0,
+        widthLine: 400,
+        pY: 470,
         textInfo: {
           title: "Швидкий і універсальний монтаж",
           text: "За допомогою отворів на зворотній поверхні вимикача",
@@ -143,8 +143,8 @@ export const detailsData: Detail[] = [
       },
       {
         id: 2,
-        widthLine: 200,
-        pY: 0,
+        widthLine: 348,
+        pY: 200,
         textInfo: {
           title: "Анодований алюміній",
           text: "7000-ї серії",
@@ -152,8 +152,8 @@ export const detailsData: Detail[] = [
       },
       {
         id: 3,
-        widthLine: 200,
-        pY: 0,
+        widthLine: 380,
+        pY: 53,
         textInfo: {
           title: "Просте встановлення",
           text: "Лише два ґвинти",
@@ -161,72 +161,9 @@ export const detailsData: Detail[] = [
       },
     ],
   },
-  // {
-  //   id: 6,
-  //   image: RoundaboutIMG,
-  //   imagePrev: TroughIMG,
-  //   info: [
-  //     {
-  //       id: 1,
-  //       widthLine: 200,
-  //       pY: 0,
-  //       textInfo: {
-  //         title: "Швидкий і універсальний монтаж",
-  //         text: "За допомогою отворів на зворотній поверхні вимикача",
-  //       },
-  //     },
-  //     {
-  //       id: 2,
-  //       widthLine: 200,
-  //       pY: 0,
-  //       textInfo: {
-  //         title: "Анодований алюміній",
-  //         text: "7000-ї серії",
-  //       },
-  //     },
-  //     {
-  //       id: 3,
-  //       widthLine: 200,
-  //       pY: 0,
-  //       textInfo: {
-  //         title: "Просте встановлення",
-  //         text: "Лише два ґвинти",
-  //       },
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 7,
-  //   image: TroughIMG,
-  //   imagePrev: TroughIMG,
-  //   info: [
-  //     {
-  //       id: 1,
-  //       widthLine: 200,
-  //       pY: 0,
-  //       textInfo: {
-  //         title: "Швидкий і універсальний монтаж",
-  //         text: "За допомогою отворів на зворотній поверхні вимикача",
-  //       },
-  //     },
-  //     {
-  //       id: 2,
-  //       widthLine: 200,
-  //       pY: 0,
-  //       textInfo: {
-  //         title: "Анодований алюміній",
-  //         text: "7000-ї серії",
-  //       },
-  //     },
-  //     {
-  //       id: 3,
-  //       widthLine: 200,
-  //       pY: 0,
-  //       textInfo: {
-  //         title: "Просте встановлення",
-  //         text: "Лише два ґвинти",
-  //       },
-  //     },
-  //   ],
-  // },
+  {
+    id: 6,
+    image: "",
+    info: [],
+  },
 ];

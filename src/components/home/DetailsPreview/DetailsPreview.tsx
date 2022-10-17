@@ -26,13 +26,13 @@ const Card = styled.div.attrs((props: IPropsCard) => ({
   nextCart: props.nextCart,
   cardsLength: props.cardsLength,
 }))`
-  z-index: ${(props) => 7 - props.detailId};
+  z-index: ${(props) => props.cardsLength - props.detailId};
   position: absolute;
   ${(props) =>
     animationCustom(props.detailId, props.showDetails, props.nextCart)}
   visibility: ${(props) =>
     props.detailId === 1 ||
-    props.cardsLength === props.detailId ||
+    props.cardsLength - 1 === props.detailId ||
     props.detailId === props.showDetails ||
     (props.detailId + 2 > props.showDetails &&
       props.detailId - 2 < props.showDetails)
@@ -77,7 +77,7 @@ const TextInfoContainer = styled.div`
   flex-direction: column;
   max-width: 234px;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 `;
 
 const TextInfo = styled.span`
