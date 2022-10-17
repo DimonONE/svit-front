@@ -16,11 +16,9 @@ export const animationCustom = (
 
   if (detailId === 1) {
     if (showDetails === 1 && nextCart === 1)
-      return ` ${animation({ marginLeftNext: "0px" })} `;
+      return `${animation({ marginLeftNext: "0px" })} `;
 
-    if (showDetails === 2) {
-      return `${animation({ marginLeftNext: "250px" })}`;
-    }
+    if (showDetails === 2) return `${animation({ marginLeftNext: "250px" })}`;
 
     if (showDetails >= 3) {
       if (nextCart) {

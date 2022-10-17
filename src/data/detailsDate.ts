@@ -1,16 +1,18 @@
+import GlassFullImg from "../assets/images/sockets/glass-full.png";
 import GlassImg from "../assets/images/sockets/glass.png";
 import BoardImg from "../assets/images/sockets/board.png";
 import FameTroughImg from "../assets/images/sockets/frame-trough.png";
-import FrameIMG from "../assets/images/sockets/frame.png";
+import RamkaIMG from "../assets/images/sockets/ramka.png";
 import TroughIMG from "../assets/images/sockets/trough.png";
-import TroughWithoutFrameIMG from "../assets/images/sockets/trough-without-frame.png";
+import TroughRoundaboutIMG from "../assets/images/sockets/trough-roundabout.png";
 import RoundaboutIMG from "../assets/images/sockets/roundabout.png";
 import { Detail } from "../types/detailsType";
 
 export const detailsData: Detail[] = [
   {
     id: 1,
-    image: GlassImg,
+    image: GlassFullImg,
+    imagePrev: GlassImg,
     info: [
       {
         id: 1,
@@ -35,6 +37,7 @@ export const detailsData: Detail[] = [
   {
     id: 2,
     image: BoardImg,
+    imagePrev: BoardImg,
     info: [
       {
         id: 1,
@@ -77,7 +80,7 @@ export const detailsData: Detail[] = [
   {
     id: 3,
     image: FameTroughImg,
-    imagePrev: FameTroughImg,
+    imagePrev: RamkaIMG,
     info: [
       {
         id: 1,
@@ -108,27 +111,26 @@ export const detailsData: Detail[] = [
       },
     ],
   },
-  // {
-  //   id: 4,
-  //   image: TroughWithoutFrameIMG,
-  //   imagePrev: TroughWithoutFrameIMG,
-  //   info: [
-  //     {
-  //       id: 1,
-  //       widthLine: 250,
-  //       pY: 240,
-  //       textInfo: {
-  //         title: "Інтерфейс KNX",
-  //         text: "Забезпечує сумістність з будь-якою системою розумного будинку",
-  //       },
-  //     },
-  //   ],
-  // },
+  {
+    id: 4,
+    image: TroughRoundaboutIMG,
+    imagePrev: TroughRoundaboutIMG,
+    info: [
+      {
+        id: 1,
+        widthLine: 250,
+        pY: 240,
+        textInfo: {
+          title: "Інтерфейс KNX",
+          text: "Забезпечує сумістність з будь-якою системою розумного будинку",
+        },
+      },
+    ],
+  },
   // {
   //   id: 5,
-  //   image: TroughWithoutFrameIMG,
+  //   image: TroughIMG,
   //   imagePrev: TroughIMG,
-  //   margin: 0,
   //   info: [
   //     {
   //       id: 1,
@@ -163,7 +165,6 @@ export const detailsData: Detail[] = [
   //   id: 6,
   //   image: RoundaboutIMG,
   //   imagePrev: TroughIMG,
-  //   margin: 0,
   //   info: [
   //     {
   //       id: 1,
@@ -198,7 +199,6 @@ export const detailsData: Detail[] = [
   //   id: 7,
   //   image: TroughIMG,
   //   imagePrev: TroughIMG,
-  //   margin: 0,
   //   info: [
   //     {
   //       id: 1,

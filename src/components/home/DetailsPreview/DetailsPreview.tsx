@@ -11,19 +11,20 @@ import {
 interface IProps extends Detail {
   showDetails: number;
   nextCart: NextCartType;
+  cardsLength: number;
 }
 
-const Card = styled.div.attrs(
-  (props: {
-    nextCart: NextCartType;
-    detailId: number;
-    showDetails: number;
-  }) => ({
-    detailId: props.detailId,
-    showDetails: props.showDetails,
-    nextCart: props.nextCart,
-  })
-)`
+interface IPropsCard
+  extends Pick<IProps, "showDetails" | "nextCart" | "cardsLength"> {
+  detailId: number;
+}
+
+const Card = styled.div.attrs((props: IPropsCard) => ({
+  detailId: props.detailId,
+  showDetails: props.showDetails,
+  nextCart: props.nextCart,
+  cardsLength: props.cardsLength,
+}))`
   z-index: ${(props) => 7 - props.detailId};
   position: absolute;
   left: ${(props) => (props.detailId !== 1 ? "20px" : "0")};
@@ -31,8 +32,10 @@ const Card = styled.div.attrs(
     animationCustom(props.detailId, props.showDetails, props.nextCart)}
   visibility: ${(props) =>
     props.detailId === 1 ||
+    props.cardsLength === props.detailId ||
     props.detailId === props.showDetails ||
-    props.detailId + 1 === props.showDetails
+    (props.detailId + 2 > props.showDetails &&
+      props.detailId - 2 < props.showDetails)
       ? "visible"
       : "hidden"};
 `;
@@ -109,11 +112,16 @@ export const CardDetailsPreview: React.FC<IProps> = (props) => {
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
   const rotateY = useTransform(x, [-100, 0], [-30, 0]);
   const heightCard = 600;
-  const { nextCart, showDetails } = props;
+  const { nextCart, showDetails, cardsLength } = props;
 
   return (
     <CardWrapper>
-      <Card detailId={props.id} showDetails={showDetails} nextCart={nextCart}>
+      <Card
+        detailId={props.id}
+        showDetails={showDetails}
+        nextCart={nextCart}
+        cardsLength={cardsLength}
+      >
         <CardContainer
           style={{
             x: 0,
@@ -131,7 +139,14 @@ export const CardDetailsPreview: React.FC<IProps> = (props) => {
           dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
           whileTap={{ cursor: "grabbing" }}
         >
-          <img height="100%" src={props.image} />
+          <img
+            height="100%"
+            src={
+              props.imagePrev && props.id !== showDetails
+                ? props.imagePrev
+                : props.image
+            }
+          />
           <ShoesWrapper />
         </CardContainer>
         {showDetails === props.id + 1 &&
