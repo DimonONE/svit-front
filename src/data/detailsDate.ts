@@ -6,6 +6,7 @@ import RamkaIMG from "../assets/images/sockets/ramka.png";
 import TroughIMG from "../assets/images/sockets/trough.png";
 import TroughRoundaboutIMG from "../assets/images/sockets/trough-roundabout.png";
 import RoundaboutIMG from "../assets/images/sockets/roundabout.png";
+import DetailBoardIMG from "../assets/images/sockets/datchika.png";
 import { Detail } from "../types/detailsType";
 
 export const detailsData: Detail[] = [
@@ -37,7 +38,7 @@ export const detailsData: Detail[] = [
   {
     id: 2,
     image: BoardImg,
-    imagePrev: BoardImg,
+    detailBottom: DetailBoardIMG,
     info: [
       {
         id: 1,
@@ -114,7 +115,7 @@ export const detailsData: Detail[] = [
   {
     id: 4,
     image: TroughRoundaboutIMG,
-    imagePrev: TroughRoundaboutIMG,
+    imagePrev: RoundaboutIMG,
     info: [
       {
         id: 1,
@@ -127,40 +128,39 @@ export const detailsData: Detail[] = [
       },
     ],
   },
-  // {
-  //   id: 5,
-  //   image: TroughIMG,
-  //   imagePrev: TroughIMG,
-  //   info: [
-  //     {
-  //       id: 1,
-  //       widthLine: 200,
-  //       pY: 0,
-  //       textInfo: {
-  //         title: "Швидкий і універсальний монтаж",
-  //         text: "За допомогою отворів на зворотній поверхні вимикача",
-  //       },
-  //     },
-  //     {
-  //       id: 2,
-  //       widthLine: 200,
-  //       pY: 0,
-  //       textInfo: {
-  //         title: "Анодований алюміній",
-  //         text: "7000-ї серії",
-  //       },
-  //     },
-  //     {
-  //       id: 3,
-  //       widthLine: 200,
-  //       pY: 0,
-  //       textInfo: {
-  //         title: "Просте встановлення",
-  //         text: "Лише два ґвинти",
-  //       },
-  //     },
-  //   ],
-  // },
+  {
+    id: 5,
+    image: TroughIMG,
+    info: [
+      {
+        id: 1,
+        widthLine: 200,
+        pY: 0,
+        textInfo: {
+          title: "Швидкий і універсальний монтаж",
+          text: "За допомогою отворів на зворотній поверхні вимикача",
+        },
+      },
+      {
+        id: 2,
+        widthLine: 200,
+        pY: 0,
+        textInfo: {
+          title: "Анодований алюміній",
+          text: "7000-ї серії",
+        },
+      },
+      {
+        id: 3,
+        widthLine: 200,
+        pY: 0,
+        textInfo: {
+          title: "Просте встановлення",
+          text: "Лише два ґвинти",
+        },
+      },
+    ],
+  },
   // {
   //   id: 6,
   //   image: RoundaboutIMG,

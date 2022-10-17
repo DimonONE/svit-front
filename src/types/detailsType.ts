@@ -13,4 +13,5 @@ export interface Detail {
   image: string;
   info: DetailInfo[];
   imagePrev?: string;
+  detailBottom?: string;
 }

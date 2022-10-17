@@ -31,7 +31,7 @@ export const animationCustom = (
     return " transform: translate(0px);";
   }
 
-  if (detailId === 2 && showDetails > 3) {
+  if (detailId >= 2 && showDetails > 3 && showDetails === detailId + 2) {
     return ` ${animation({ marginLeftNext: "80vw" })} `;
   }
 
