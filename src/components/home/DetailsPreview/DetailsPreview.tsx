@@ -20,12 +20,19 @@ interface IPropsCard
   detailId: number;
 }
 
+const opacityAnimation = keyframes`
+ 0% {transform: translate(0px, 0);}
+ 50% {transform: translate( 1px, 5px);}
+ 100% { transform: translate(0, 0px); }`;
+
 const Card = styled.div.attrs((props: IPropsCard) => ({
   detailId: props.detailId,
   showDetails: props.showDetails,
   nextCart: props.nextCart,
   cardsLength: props.cardsLength,
 }))`
+  display: flex;
+  align-items: center;
   z-index: ${(props) => props.cardsLength - props.detailId};
   position: absolute;
   ${(props) =>
@@ -40,13 +47,19 @@ const Card = styled.div.attrs((props: IPropsCard) => ({
       : "hidden"};
 `;
 
-const CardContainer: any = styled(motion.div)`
+const CardContainer: any = styled(motion.div).attrs((props: IPropsCard) => ({
+  detailId: props.detailId,
+  showDetails: props.showDetails,
+}))`
   position: relative;
   display: flex;
   align-items: center;
   width: 600px;
   color: #fff;
   margin-left: 5%;
+  animation: ${(props) =>
+      props.detailId + 1 === props.showDetails ? opacityAnimation : null}
+    7s linear infinite;
   transition: height 1.2s;
 `;
 
@@ -92,12 +105,21 @@ const TextInfoTitle = styled.span`
   line-height: 24px;
 `;
 
-const InfoLine: any = styled.div.attrs((props: { width: string }) => ({
+const InfoLine = styled.div.attrs((props: { width: string }) => ({
   width: `${props.width}px`,
 }))`
   width: ${(props) => props.width};
   opacity: 0.5;
   border-top: 1px solid #ffffff;
+`;
+
+const InfoLineBottom = styled(InfoLine)`
+  margin-right: 320px;
+  width: 170px;
+  height: 20px;
+  border-top: 0;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
 `;
 
 const CardWrapper = styled.div`
@@ -154,6 +176,7 @@ export const CardDetailsPreview: React.FC<IProps> = ({
         showDetails={showDetails}
         nextCart={nextCart}
         cardsLength={cardsLength}
+        style={{ height: heightCard + 100 }}
       >
         <CardContainer
           style={{
@@ -171,6 +194,8 @@ export const CardDetailsPreview: React.FC<IProps> = ({
           dragElastic={0.16}
           dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
           whileTap={{ cursor: "grabbing" }}
+          detailId={props.id}
+          showDetails={showDetails}
         >
           <img height="100%" src={image} />
           {props.detailBottom && (
@@ -188,7 +213,8 @@ export const CardDetailsPreview: React.FC<IProps> = ({
                 <TextInfoTitle>{item.textInfo.title}</TextInfoTitle>
                 <TextInfo>{item.textInfo.text}</TextInfo>
               </TextInfoContainer>
-              <InfoLine width={item.widthLine} />
+              <InfoLine width={item.widthLine.toString()} />
+              {item?.infoLineBottom && <InfoLineBottom />}
             </InfoContainer>
           ))}
       </Card>

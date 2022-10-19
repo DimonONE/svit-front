@@ -27,7 +27,7 @@ const WrapperCardDetails: React.FC<IProps> = ({ data: detailsData }) => {
       event,
       loading,
       setLoading,
-      delay: 400,
+      delay: 500,
     });
 
     if (nevEvent) {

@@ -6,6 +6,7 @@ export interface DetailInfo {
     title: string;
     text: string;
   };
+  infoLineBottom?: boolean;
 }
 
 export interface Detail {
