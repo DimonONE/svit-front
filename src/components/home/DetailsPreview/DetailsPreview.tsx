@@ -25,6 +25,10 @@ const opacityAnimation = keyframes`
  50% {transform: translate( 1px, 5px);}
  100% { transform: translate(0, 0px); }`;
 
+const shadowAnimation = keyframes`
+ 0% {width: 240px ;}
+ 100% { width: 245px; }`;
+
 const Card = styled.div.attrs((props: IPropsCard) => ({
   detailId: props.detailId,
   showDetails: props.showDetails,
@@ -76,15 +80,6 @@ const InfoContainer = styled.div.attrs((props: { pY: number }) => ({
   align-items: flex-end;
 `;
 
-const ShoesWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 const TextInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -122,9 +117,22 @@ const InfoLineBottom = styled(InfoLine)`
   border-right: 1px solid #ffffff;
 `;
 
+const Bolt = styled.img`
+  position: absolute;
+  margin-top: 5px;
+  background: red;
+  width: 30px;
+  height: 30px;
+  margin-left: -30px;
+`;
+
 const CardWrapper = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const Image = styled.img`
+  height: 100%;
 `;
 
 const DetailBottom = styled.img.attrs((props: { showDetail: boolean }) => ({
@@ -184,7 +192,7 @@ export const CardDetailsPreview: React.FC<IProps> = ({
           detailId={props.id}
           showDetails={showDetails}
         >
-          <img height="100%" src={image} />
+          <Image src={image} />
           {props.detailBottom && (
             <DetailBottom
               src={props.detailBottom}
@@ -199,8 +207,16 @@ export const CardDetailsPreview: React.FC<IProps> = ({
                 <TextInfoTitle>{item.textInfo.title}</TextInfoTitle>
                 <TextInfo>{item.textInfo.text}</TextInfo>
               </TextInfoContainer>
-              <InfoLine width={item.widthLine.toString()} />
-              {item?.infoLineBottom && <InfoLineBottom />}
+              <InfoLine width={item.widthLine.toString()}>
+                {item?.detailBolt && (
+                  <Bolt src={item.detailBolt} style={{ marginTop: "-15px" }} />
+                )}
+              </InfoLine>
+              {item?.infoLineBottom && (
+                <InfoLineBottom>
+                  {item?.detailBolt && <Bolt src={item.detailBolt} />}
+                </InfoLineBottom>
+              )}
             </InfoContainer>
           ))}
       </Card>

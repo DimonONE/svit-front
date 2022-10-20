@@ -7,6 +7,7 @@ export interface DetailInfo {
     text: string;
   };
   infoLineBottom?: boolean;
+  detailBolt?: string;
 }
 
 export interface Detail {
