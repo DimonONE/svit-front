@@ -1,4 +1,4 @@
-import React, { useEffect, useState, WheelEvent } from "react";
+import React, { SetStateAction, useEffect, useState, WheelEvent } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import styled, { keyframes } from "styled-components";
 import { Detail, DetailInfo } from "../../../types/detailsType";
@@ -13,6 +13,7 @@ interface IProps extends Detail {
   nextCart: NextCartType;
   cardsLength: number;
   delayAnimations: number;
+  disabledScroll: React.Dispatch<SetStateAction<boolean>>;
 }
 
 interface IPropsCard
@@ -146,6 +147,7 @@ const DetailBottom = styled.img.attrs((props: { showDetail: boolean }) => ({
 `;
 
 export const CardDetailsPreview: React.FC<IProps> = ({
+  disabledScroll,
   delayAnimations,
   ...props
 }) => {
@@ -155,8 +157,10 @@ export const CardDetailsPreview: React.FC<IProps> = ({
   const heightCard = 600;
 
   const timeout = () => {
+    disabledScroll(() => true);
     setTimeout(() => {
       setImage(props.image);
+      disabledScroll(() => false);
     }, delayAnimations);
   };
 

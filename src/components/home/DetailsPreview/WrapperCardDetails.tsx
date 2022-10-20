@@ -20,6 +20,7 @@ const CardDetails = styled.div`
 const WrapperCardDetails: React.FC<IProps> = ({ data: detailsData }) => {
   const [showDetails, setShowDetails] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [disabledScroll, setDisabledScroll] = useState(false);
   const [nextCart, setNextCart] = useState<NextCartType>(0);
 
   const handleScroll = (event: WheelEvent<HTMLDivElement> | undefined) => {
@@ -30,7 +31,7 @@ const WrapperCardDetails: React.FC<IProps> = ({ data: detailsData }) => {
       delay: 500,
     });
 
-    if (nevEvent) {
+    if (!disabledScroll && nevEvent) {
       const count = (prevCount: number) => {
         const next = event?.deltaY && event.deltaY < 0;
         setNextCart(() => (!!next ? 1 : -1));
@@ -54,6 +55,7 @@ const WrapperCardDetails: React.FC<IProps> = ({ data: detailsData }) => {
           nextCart={nextCart}
           showDetails={showDetails}
           delayAnimations={900}
+          disabledScroll={setDisabledScroll}
           {...props}
         />
       ))}
