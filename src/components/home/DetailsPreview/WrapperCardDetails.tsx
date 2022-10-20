@@ -13,7 +13,7 @@ const CardDetails = styled.div`
   display: flex;
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   align-items: center;
 `;
 
