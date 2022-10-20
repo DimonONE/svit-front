@@ -20,7 +20,9 @@ export const detailsData: Detail[] = [
       {
         id: 1,
         widthLine: 370,
+        widthLineMd: 410,
         pY: 160,
+        heightMdpPY: 90,
         textInfo: {
           title: "Загартоване матове скло",
           text: "Скло з приємною матовою поверхнею, олеофобним покриттям, яке захищає скло від відбитків пальців",
@@ -29,7 +31,9 @@ export const detailsData: Detail[] = [
       {
         id: 2,
         widthLine: 370,
+        widthLineMd: 410,
         pY: 375,
+        heightMdpPY: 340,
         textInfo: {
           title: "Інтуїтивна навігація",
           text: "Фрезероване скло дозволяє швидко і просто скористатися панеллю завдяки тактильним відчуттям",
@@ -45,7 +49,9 @@ export const detailsData: Detail[] = [
       {
         id: 1,
         widthLine: 370,
+        widthLineMd: 400,
         pY: 115,
+        heightMdpPY: 130,
         textInfo: {
           title: "Можливість взаємодії з кожним міліметром панелі",
           text: "Забезпечується чуттєвим сенсором уздовж усієї поверхні ",
@@ -54,7 +60,10 @@ export const detailsData: Detail[] = [
       {
         id: 2,
         widthLine: 410,
+        widthLineMd: 427,
+
         pY: 320,
+        heightMdpPY: 285,
         textInfo: {
           title: "Індивідуальна підсвітка",
           text: "При натиску на будь-яку іконку",
@@ -64,6 +73,7 @@ export const detailsData: Detail[] = [
         id: 3,
         widthLine: 398,
         pY: 407,
+        heightMdpPY: 350,
         textInfo: {
           title: "Особливі візуальні ефекти",
           text: "Реалізовані за допомогою масиву світлодіодів",
@@ -72,7 +82,10 @@ export const detailsData: Detail[] = [
       {
         id: 4,
         widthLine: 440,
+        widthLineMd: 450,
+
         pY: 500,
+        heightMdpPY: 452,
         textInfo: {
           title: "Контроль безлічі показників",
           text: "Шляхом вбудованих датчиків освітлення, температури, вологості та тиску",
@@ -88,7 +101,9 @@ export const detailsData: Detail[] = [
       {
         id: 1,
         widthLine: 435,
+        widthLineMd: 445,
         pY: 35,
+        heightMdpPY: 65,
         textInfo: {
           title: "М’який натиск",
           text: "Завдяки пружинній рамці",
@@ -97,7 +112,9 @@ export const detailsData: Detail[] = [
       {
         id: 2,
         widthLine: 435,
+        widthLineMd: 445,
         pY: 260,
+        heightMdpPY: 255,
         textInfo: {
           title: "Тaptic Engine",
           text: "Забезпечує приємні тактильні відчуття ",
@@ -106,7 +123,9 @@ export const detailsData: Detail[] = [
       {
         id: 3,
         widthLine: 388,
+        widthLineMd: 410,
         pY: 440,
+        heightMdpPY: 380,
         textInfo: {
           title: "Чутливі тензодатчики",
           text: "зчитують силу натиску, забезпечуючи багатофункціональність приладу",
@@ -123,6 +142,7 @@ export const detailsData: Detail[] = [
       {
         id: 1,
         widthLine: 430,
+        widthLineMd: 440,
         pY: 245,
         textInfo: {
           title: "Інтерфейс KNX",
@@ -138,7 +158,9 @@ export const detailsData: Detail[] = [
       {
         id: 1,
         widthLine: 380,
+        widthLineMd: 405,
         pY: 63,
+        heightMdpPY: 88,
         textInfo: {
           title: "Швидкий і універсальний монтаж",
           text: "За допомогою отворів на зворотній поверхні вимикача",
@@ -147,7 +169,9 @@ export const detailsData: Detail[] = [
       {
         id: 2,
         widthLine: 348,
+        widthLineMd: 380,
         pY: 250,
+        heightMdpPY: 240,
         textInfo: {
           title: "Анодований алюміній",
           text: "7000-ї серії",
@@ -156,7 +180,9 @@ export const detailsData: Detail[] = [
       {
         id: 3,
         widthLine: 400,
+        widthLineMd: 405,
         pY: 585,
+        heightMdpPY: 485,
         textInfo: {
           title: "Просте встановлення",
           text: "Лише два ґвинти",

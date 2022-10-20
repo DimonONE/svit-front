@@ -6,6 +6,8 @@ export interface DetailInfo {
     title: string;
     text: string;
   };
+  widthLineMd?: number;
+  heightMdpPY?: number;
   infoLineBottom?: boolean;
   detailBolt?: string;
 }

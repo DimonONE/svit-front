@@ -54,7 +54,7 @@ const WrapperCardDetails: React.FC<IProps> = ({ data: detailsData }) => {
           cardsLength={detailsData.length}
           nextCart={nextCart}
           showDetails={showDetails}
-          delayAnimations={1300}
+          delayAnimations={1500}
           disabledScroll={setDisabledScroll}
           {...props}
         />

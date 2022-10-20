@@ -7,6 +7,7 @@ import {
   AnimationToLeftType,
   NextCartType,
 } from "src/hooks/animationCartHook";
+import { heightMd } from "../../../utils/media";
 
 interface IProps extends Detail {
   showDetails: number;
@@ -19,6 +20,7 @@ interface IProps extends Detail {
 interface IPropsCard
   extends Pick<IProps, "showDetails" | "nextCart" | "cardsLength"> {
   detailId: number;
+  heightCard: number;
 }
 
 const opacityAnimation = keyframes`
@@ -56,6 +58,7 @@ const Card = styled.div.attrs((props: IPropsCard) => ({
 const CardContainer: any = styled.div.attrs((props: IPropsCard) => ({
   detailId: props.detailId,
   showDetails: props.showDetails,
+  heightCard: props.heightCard,
 }))`
   position: relative;
   display: flex;
@@ -67,19 +70,36 @@ const CardContainer: any = styled.div.attrs((props: IPropsCard) => ({
       props.detailId + 1 === props.showDetails ? opacityAnimation : null}
     7s linear infinite;
   transition: height 1.2s;
+  height: ${(props) =>
+    props.detailId === 1 || props.detailId === props.showDetails - 1
+      ? props.heightCard
+      : props.heightCard - 20}px;
+  @media (max-height: ${heightMd}) {
+    height: 455px;
+    margin-top: -100px;
+    margin-left: 2%;
+  }
 `;
 
-const InfoContainer = styled.div.attrs((props: { pY: number }) => ({
-  pY: props.pY,
-}))`
+const InfoContainer = styled.div.attrs(
+  (props: { pY: number; heightMdpPY: number }) => ({
+    pY: props.pY,
+    heightMdpPY: props.heightMdpPY,
+  })
+)`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: ${(props) => `${props.pY}px`};
+  top: ${(props) => props.pY}px;
 
   width: 590px;
   flex: 1;
   align-items: flex-end;
+
+  @media (max-height: ${heightMd}) {
+    width: 555px;
+    top: ${(props) => (props.heightMdpPY ? props.heightMdpPY : props.pY)}px;
+  }
 `;
 
 const TextInfoContainer = styled.div`
@@ -88,26 +108,48 @@ const TextInfoContainer = styled.div`
   max-width: 234px;
   width: 100%;
   margin-bottom: 25px;
+
+  @media (max-height: ${heightMd}) {
+    margin-bottom: 10px;
+  }
 `;
 
 const TextInfo = styled.span`
   font-weight: 600;
   font-size: 15px;
   line-height: 19px;
+  @media (max-height: ${heightMd}) {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+  }
 `;
 
 const TextInfoTitle = styled.span`
   font-weight: 700;
   font-size: 19px;
   line-height: 24px;
+
+  @media (max-height: ${heightMd}) {
+    font-size: 18px;
+    line-height: 16px;
+    margin-bottom: 5px;
+  }
 `;
 
-const InfoLine = styled.div.attrs((props: { width: string }) => ({
-  width: `${props.width}px`,
-}))`
+const InfoLine = styled.div.attrs(
+  (props: { width: number; widthLineMd: number }) => ({
+    width: `${props.width}px`,
+    widthLineMd: `${props.widthLineMd}px`,
+  })
+)`
   width: ${(props) => props.width};
   opacity: 0.5;
   border-top: 1px solid #ffffff;
+
+  @media (max-height: ${heightMd}) {
+    width: ${(props) => (props.widthLineMd ? props.widthLineMd : props.width)};
+  }
 `;
 
 const InfoLineBottom = styled(InfoLine)`
@@ -188,14 +230,9 @@ export const CardDetailsPreview: React.FC<IProps> = ({
         style={{ height: heightCard + 100 }}
       >
         <CardContainer
-          style={{
-            height:
-              props.id === 1 || props.id === showDetails - 1
-                ? heightCard
-                : heightCard - 20,
-          }}
           detailId={props.id}
           showDetails={showDetails}
+          heightCard={heightCard}
         >
           <Image src={image} />
           {props.detailBottom && (
@@ -207,12 +244,16 @@ export const CardDetailsPreview: React.FC<IProps> = ({
         </CardContainer>
         {showDetails === props.id + 1 &&
           props.info.map((item) => (
-            <InfoContainer key={item.id} pY={item.pY}>
+            <InfoContainer
+              key={item.id}
+              pY={item.pY}
+              heightMdpPY={item.heightMdpPY}
+            >
               <TextInfoContainer>
                 <TextInfoTitle>{item.textInfo.title}</TextInfoTitle>
                 <TextInfo>{item.textInfo.text}</TextInfo>
               </TextInfoContainer>
-              <InfoLine width={item.widthLine.toString()}>
+              <InfoLine width={item.widthLine} widthLineMd={item.widthLineMd}>
                 {item?.detailBolt && (
                   <Bolt src={item.detailBolt} style={{ marginTop: "-15px" }} />
                 )}
