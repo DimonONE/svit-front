@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { HomePage } from "../pages/HopePage";
+import { HomePage } from "../pages/HomePage";
 
 export const Router: React.FC = () => {
   return (
