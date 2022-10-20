@@ -44,6 +44,7 @@ const Card = styled.div.attrs((props: IPropsCard) => ({
     animationCustom(props.detailId, props.showDetails, props.nextCart)}
   visibility: ${(props) =>
     props.detailId === 1 ||
+    (props.showDetails < 4 && props.detailId === 3) ||
     props.cardsLength - 1 === props.detailId ||
     props.detailId === props.showDetails ||
     (props.detailId + 2 > props.showDetails &&
