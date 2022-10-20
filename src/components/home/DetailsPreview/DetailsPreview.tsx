@@ -47,7 +47,7 @@ const Card = styled.div.attrs((props: IPropsCard) => ({
       : "hidden"};
 `;
 
-const CardContainer: any = styled(motion.div).attrs((props: IPropsCard) => ({
+const CardContainer: any = styled.div.attrs((props: IPropsCard) => ({
   detailId: props.detailId,
   showDetails: props.showDetails,
 }))`
@@ -142,13 +142,9 @@ export const CardDetailsPreview: React.FC<IProps> = ({
   ...props
 }) => {
   const [image, setImage] = useState("");
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
 
-  const rotateX = useTransform(y, [-100, 100], [30, -30]);
-  const rotateY = useTransform(x, [-100, 0], [-30, 0]);
-  const heightCard = 600;
   const { nextCart, showDetails, cardsLength } = props;
+  const heightCard = 600;
 
   const timeout = () => {
     setTimeout(() => {
@@ -180,20 +176,11 @@ export const CardDetailsPreview: React.FC<IProps> = ({
       >
         <CardContainer
           style={{
-            x: 0,
-            y,
-            rotateX,
-            rotateY,
-            z: 100,
             height:
               props.id === 1 || props.id === showDetails - 1
                 ? heightCard
                 : heightCard - 20,
           }}
-          drag
-          dragElastic={0.16}
-          dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-          whileTap={{ cursor: "grabbing" }}
           detailId={props.id}
           showDetails={showDetails}
         >
@@ -204,7 +191,6 @@ export const CardDetailsPreview: React.FC<IProps> = ({
               showDetail={props.id + 1 === showDetails}
             />
           )}
-          <ShoesWrapper />
         </CardContainer>
         {showDetails === props.id + 1 &&
           props.info.map((item) => (
