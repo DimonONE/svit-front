@@ -28,7 +28,7 @@ const WrapperCardDetails: React.FC<IProps> = ({ data: detailsData }) => {
       event,
       loading,
       setLoading,
-      delay: 500,
+      delay: 700,
     });
 
     if (!disabledScroll && nevEvent) {
@@ -43,7 +43,7 @@ const WrapperCardDetails: React.FC<IProps> = ({ data: detailsData }) => {
           ? ++prevCount
           : prevCount;
       };
-      setShowDetails((prev) => count(prev));
+      setShowDetails(count(showDetails));
     }
   };
   return (
@@ -54,7 +54,7 @@ const WrapperCardDetails: React.FC<IProps> = ({ data: detailsData }) => {
           cardsLength={detailsData.length}
           nextCart={nextCart}
           showDetails={showDetails}
-          delayAnimations={1500}
+          delayAnimations={1000}
           disabledScroll={setDisabledScroll}
           {...props}
         />
