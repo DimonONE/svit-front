@@ -234,7 +234,10 @@ export const CardDetailsPreview: React.FC<IProps> = ({
           showDetails={showDetails}
           heightCard={heightCard}
         >
-          <Image src={image} />
+          <Image
+            src={image}
+            style={{ marginLeft: props.id === 2 ? "3px" : "" }}
+          />
           {props.detailBottom && (
             <DetailBottom
               src={props.detailBottom}

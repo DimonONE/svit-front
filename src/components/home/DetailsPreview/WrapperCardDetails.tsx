@@ -28,7 +28,7 @@ const WrapperCardDetails: React.FC<IProps> = ({ data: detailsData }) => {
       event,
       loading,
       setLoading,
-      delay: 500,
+      delay: 1500,
     });
 
     if (!disabledScroll && nevEvent) {
