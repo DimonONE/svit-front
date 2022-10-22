@@ -7,8 +7,7 @@ import TroughIMG from "../assets/images/sockets/trough.png";
 import TroughRoundaboutIMG from "../assets/images/sockets/trough-roundabout.png";
 import RoundaboutIMG from "../assets/images/sockets/roundabout.png";
 import DetailBoardIMG from "../assets/images/sockets/datchika.png";
-// import BoltsSVG from "../assets/svg/bolts.svg";
-import BoltsSVG from "../assets/svg/test-detail.png";
+import BoltsIMG from "../assets/images/sockets/bolt.png";
 import { Detail } from "../types/detailsType";
 
 export const detailsData: Detail[] = [
@@ -188,7 +187,7 @@ export const detailsData: Detail[] = [
           text: "Лише два ґвинти",
         },
         infoLineBottom: true,
-        detailBolt: BoltsSVG,
+        detailBolt: BoltsIMG,
       },
     ],
   },

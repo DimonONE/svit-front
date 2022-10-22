@@ -165,9 +165,7 @@ const Bolt = styled.img`
   position: absolute;
   margin-top: 5px;
   background: red;
-  width: 30px;
   height: 30px;
-  margin-left: -30px;
 `;
 
 const CardWrapper = styled.div`
